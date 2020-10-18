@@ -1,0 +1,9 @@
+SHOW DATABASES;
+
+CREATE DATABASE companyscheduler;
+
+USE companyscheduler;
+
+SHOW TABLES;
+
+DROP DATABASE companyscheduler;

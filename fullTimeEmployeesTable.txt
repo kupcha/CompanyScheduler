@@ -1,0 +1,20 @@
+CREATE TABLE full_time_employees (
+    FullTimeEmployeeID int auto_increment,
+    UserName varchar(255), 
+
+    PRIMARY KEY (EmployeeID),
+	
+    FOREIGN KEY (UserName)
+      REFERENCES employees(UserName)    
+
+);
+
+alter table full_time_employees auto_increment=1;
+
+INSERT INTO full_time_employees (UserName) VALUES ('Random_Name');
+
+SELECT * FROM full_time_employees;
+
+DELETE FROM full_time_employees WHERE EmployeeID = 2; 
+
+DROP Table full_time_employees;

@@ -1,0 +1,21 @@
+CREATE TABLE employees (
+    EmployeeID int auto_increment,
+    UserName varchar(255), 
+    ShiftHours int DEFAULT 8,    
+
+    PRIMARY KEY (EmployeeID),
+	
+    FOREIGN KEY (UserName)
+      REFERENCES users(Username)    
+
+);
+
+alter table employees auto_increment=1;
+
+INSERT INTO employees (UserName) VALUES ('Random_Name');
+
+SELECT * FROM employees;
+
+DELETE FROM employees WHERE EmployeeID = 2; 
+
+DROP Table employees;
