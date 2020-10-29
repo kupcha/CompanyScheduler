@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="application.AddEmployeeController">
    <center>
-      <Pane id="AddE" prefHeight="600.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <Pane id="AddE"  prefHeight="600.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
               <menus>
@@ -35,17 +35,17 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <TextField layoutX="128.0" layoutY="73.0" prefHeight="30.0" prefWidth="128.0">
+            <TextField fx:id="First_Name" layoutX="128.0" layoutY="73.0" prefHeight="30.0" prefWidth="128.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </TextField>
-            <RadioButton layoutX="102.0" layoutY="355.0" mnemonicParsing="false" text="Full Time">
+            <RadioButton fx:id="Full_Time" layoutX="102.0" layoutY="355.0" mnemonicParsing="false" text="Full Time">
                <font>
                   <Font size="13.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="102.0" layoutY="374.0" mnemonicParsing="false" text="Part Time">
+            <RadioButton fx:id="Part_Time" layoutX="102.0" layoutY="374.0" mnemonicParsing="false" text="Part Time">
                <font>
                   <Font size="13.0" />
                </font>
@@ -70,7 +70,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="128.0" layoutY="115.0" prefHeight="30.0" prefWidth="202.0">
+            <TextField fx:id="Last_Name" layoutX="128.0" layoutY="115.0" prefHeight="30.0" prefWidth="202.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -100,23 +100,23 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <DatePicker layoutX="128.0" layoutY="159.0" />
-            <TextField layoutX="128.0" layoutY="196.0" prefHeight="30.0" prefWidth="198.0">
+            <DatePicker fx:id="DOB" layoutX="128.0" layoutY="159.0" />
+            <TextField fx:id="Email_Name" layoutX="128.0" layoutY="196.0" prefHeight="30.0" prefWidth="198.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </TextField>
-            <TextField layoutX="139.0" layoutY="239.0" prefHeight="30.0" prefWidth="213.0">
+            <TextField fx:id="PhoneNumber" layoutX="139.0" layoutY="239.0" prefHeight="30.0" prefWidth="213.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </TextField>
-            <Button layoutX="434.0" layoutY="530.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="88.0" text="Add" textFill="#008a0b">
+            <Button fx:id="Add" layoutX="434.0" layoutY="530.0" mnemonicParsing="false" onAction="#AddEmployee" prefHeight="44.0" prefWidth="88.0" text="Add" textFill="#008a0b">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button layoutX="28.0" layoutY="530.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="88.0" text="Exit" textFill="RED">
+            <Button fx:id="Exit" layoutX="28.0" layoutY="530.0" mnemonicParsing="false" onAction="#ExitAction" prefHeight="44.0" prefWidth="88.0" text="Exit" textFill="RED">
                <font>
                   <Font size="14.0" />
                </font>
@@ -131,7 +131,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="395.0" layoutY="100.0" prefHeight="30.0" prefWidth="188.0">
+            <TextField fx:id="UserName" layoutX="395.0" layoutY="100.0" prefHeight="30.0" prefWidth="188.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -141,7 +141,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="395.0" layoutY="169.0" prefHeight="30.0" prefWidth="188.0">
+            <TextField fx:id="Password" layoutX="395.0" layoutY="169.0" prefHeight="30.0" prefWidth="188.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -171,22 +171,22 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="368.0" layoutY="350.0" prefHeight="21.0" prefWidth="198.0">
+            <TextField fx:id="Street_Name" layoutX="368.0" layoutY="350.0" prefHeight="21.0" prefWidth="198.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </TextField>
-            <TextField layoutX="368.0" layoutY="479.0" prefHeight="30.0" prefWidth="89.0">
+            <TextField fx:id="Zip_Name" layoutX="368.0" layoutY="479.0" prefHeight="30.0" prefWidth="89.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </TextField>
-            <TextField layoutX="368.0" layoutY="439.0" prefHeight="30.0" prefWidth="90.0">
+            <TextField fx:id="State_Name" layoutX="368.0" layoutY="439.0" prefHeight="30.0" prefWidth="90.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </TextField>
-            <TextField layoutX="368.0" layoutY="394.0" prefHeight="21.0" prefWidth="198.0">
+            <TextField fx:id="City_Name" layoutX="368.0" layoutY="394.0" prefHeight="21.0" prefWidth="198.0">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
