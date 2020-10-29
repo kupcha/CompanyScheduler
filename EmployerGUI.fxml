@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="application.EmployerHomeController">
   <children>
     <MenuBar style="-fx-background-color: lightgrey;" VBox.vgrow="NEVER">
       <menus>
@@ -53,32 +53,32 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: white; -fx-background-radius: 0;" VBox.vgrow="ALWAYS">
          <children>
-            <Button layoutX="41.0" layoutY="26.0" mnemonicParsing="false" text="Add Employee">
+            <Button fx:id="Add" layoutX="41.0" layoutY="26.0" mnemonicParsing="false" onAction="#AddEmployee" text="Add Employee">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button layoutX="41.0" layoutY="26.0" mnemonicParsing="false" text="Change Employee" translateY="75.0">
+            <Button fx:id="ChangeE" layoutX="41.0" layoutY="26.0" mnemonicParsing="false" onAction="#ChangeEmployee" text="Change Employee" translateY="75.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button layoutX="41.0" layoutY="101.0" mnemonicParsing="false" text="Check Requests" translateY="75.0">
+            <Button fx:id="CheckR" layoutX="41.0" layoutY="101.0" mnemonicParsing="false" onAction="#CheckRequest" text="Check Requests" translateY="75.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button layoutX="40.0" layoutY="176.0" mnemonicParsing="false" text="Remove Employee" translateY="75.0">
+            <Button fx:id="RemoveE" layoutX="40.0" layoutY="176.0" mnemonicParsing="false" onAction="#RemoveEmployee" text="Remove Employee" translateY="75.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button layoutX="420.0" layoutY="29.0" mnemonicParsing="false" text="Create Schedule" textFill="#14a800">
+            <Button fx:id="CreateS" layoutX="420.0" layoutY="29.0" mnemonicParsing="false" onAction="#CreateSchedule" text="Create Schedule" textFill="#14a800">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button layoutX="465.0" layoutY="32.0" mnemonicParsing="false" text="Logout" textFill="RED" translateY="75.0">
+            <Button fx:id="Logout" layoutX="465.0" layoutY="32.0" mnemonicParsing="false" onAction="#Logout" text="Logout" textFill="RED" translateY="75.0">
                <font>
                   <Font size="16.0" />
                </font>
