@@ -47,7 +47,7 @@ public class EmployerHomeController {
     	
     		try {
     			
-    			BorderPane second = FXMLLoader.load(getClass().getResource("/application/Add Employee.fxml"));
+    			BorderPane second = FXMLLoader.load(getClass().getResource("/application/AddEmployee.fxml"));
     			Scene scene2 = new Scene(second, 600,600);
     			
     			Stage secondStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
