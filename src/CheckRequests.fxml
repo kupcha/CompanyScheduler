@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="application.EmployerHomeController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <MenuBar style="-fx-background-color: lightgrey;" VBox.vgrow="NEVER">
+    <MenuBar VBox.vgrow="NEVER">
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
@@ -51,42 +53,30 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: white; -fx-background-radius: 0;" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button fx:id="Add" layoutX="41.0" layoutY="26.0" mnemonicParsing="false" onAction="#AddEmployee" text="Add Employee">
+            <TextField alignment="CENTER" layoutX="176.0" layoutY="52.0" text="Pending Requests">
                <font>
-                  <Font size="16.0" />
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TreeTableView layoutX="95.0" layoutY="117.0" prefHeight="200.0" prefWidth="393.0">
+              <columns>
+                <TreeTableColumn prefWidth="79.0" text="Employee" />
+                <TreeTableColumn prefWidth="313.0" text="Time Off Requested" />
+              </columns>
+            </TreeTableView>
+            <Button layoutX="95.0" layoutY="330.0" mnemonicParsing="false" text="Confirm " textFill="#29f80e">
+               <font>
+                  <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="ChangeE" layoutX="41.0" layoutY="26.0" mnemonicParsing="false" onAction="#ChangeEmployee" text="Change Employee" translateY="75.0">
+            <Button layoutX="431.0" layoutY="330.0" mnemonicParsing="false" text="Deny" textFill="#f73b0f">
                <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-            <Button fx:id="CheckR" layoutX="41.0" layoutY="101.0" mnemonicParsing="false" onAction="#CheckRequest" text="Check Requests" translateY="75.0">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-            <Button fx:id="RemoveE" layoutX="40.0" layoutY="176.0" mnemonicParsing="false" onAction="#RemoveEmployee" text="Remove Employee" translateY="75.0">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-            <Button fx:id="CreateS" layoutX="420.0" layoutY="29.0" mnemonicParsing="false" onAction="#CreateSchedule" text="Create Schedule" textFill="#14a800">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-            <Button fx:id="Logout" layoutX="465.0" layoutY="32.0" mnemonicParsing="false" onAction="#Logout" text="Logout" textFill="RED" translateY="75.0">
-               <font>
-                  <Font size="16.0" />
+                  <Font size="15.0" />
                </font>
             </Button>
          </children>
-         <VBox.margin>
-            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-         </VBox.margin>
     </AnchorPane>
   </children>
 </VBox>

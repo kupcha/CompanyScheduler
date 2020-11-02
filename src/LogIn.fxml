@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LogInController">
+   <center>
+      <Pane id="Log In" prefHeight="500.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="Login" layoutX="204.0" layoutY="366.0" mnemonicParsing="false" onAction="#LoginAction" prefHeight="53.0" prefWidth="85.0" text="Log In" />
+            <Button fx:id="Exit" layoutX="406.0" layoutY="441.0" mnemonicParsing="false" onAction="#ExitAction" prefHeight="45.0" prefWidth="80.0" text="Exit" />
+            <TextField fx:id="userNameTxt" layoutX="154.0" layoutY="179.0" prefHeight="35.0" prefWidth="192.0" />
+            <TextField fx:id="passwordTxt" layoutX="154.0" layoutY="309.0" prefHeight="35.0" prefWidth="192.0" />
+            <Label layoutX="204.0" layoutY="132.0" prefHeight="18.0" prefWidth="137.0" text="Username" />
+            <Label layoutX="204.0" layoutY="259.0" prefHeight="18.0" prefWidth="137.0" text="Password" />
+            <MenuBar layoutY="2.0" prefHeight="22.0" prefWidth="500.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

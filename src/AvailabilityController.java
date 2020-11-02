@@ -89,8 +89,8 @@ public class AvailabilityController implements Initializable {
     	openAvailability.setToggleGroup(toggle);
     	mondayAvailability = 2;
     	openAvail = 0;
-    	
     }
+    
     public void handleMon9to5() {
     	ToggleGroup toggle = new ToggleGroup();
     	monday9to5.setToggleGroup(toggle);
@@ -100,6 +100,7 @@ public class AvailabilityController implements Initializable {
     	mondayAvailability = 1;
     	openAvail = 0;
     }
+    
     public void handleMon9to9() {
     	ToggleGroup toggle = new ToggleGroup();
     	monday9to5.setToggleGroup(toggle);
@@ -109,6 +110,7 @@ public class AvailabilityController implements Initializable {
     	mondayAvailability = 0;
     	openAvail = 0;
     }
+    
     public void handleTues1to9() {
     	ToggleGroup tuesToggle = new ToggleGroup();
     	tuesday9to5.setToggleGroup(tuesToggle);
@@ -118,6 +120,7 @@ public class AvailabilityController implements Initializable {
     	tuesdayAvailability = 2;
     	openAvail = 0;
     }
+    
     public void handleTues9to5() {
     	ToggleGroup tuesToggle = new ToggleGroup();
     	tuesday9to5.setToggleGroup(tuesToggle);
@@ -127,6 +130,7 @@ public class AvailabilityController implements Initializable {
     	tuesdayAvailability = 1;
     	openAvail = 0;
     }
+    
     public void handleTues9to9() {
     	ToggleGroup tuesToggle = new ToggleGroup();
     	tuesday9to5.setToggleGroup(tuesToggle);
@@ -136,6 +140,7 @@ public class AvailabilityController implements Initializable {
     	tuesdayAvailability = 0;
     	openAvail = 0;
     }
+    
     public void handleWed1to9() {
     	ToggleGroup wedToggle = new ToggleGroup();
     	wednesday9to5.setToggleGroup(wedToggle);
@@ -145,6 +150,7 @@ public class AvailabilityController implements Initializable {
     	wednesdayAvailability = 2;
     	openAvail = 0;
     }
+    
     public void handleWed9to5() {
     	ToggleGroup wedToggle = new ToggleGroup();
     	wednesday9to5.setToggleGroup(wedToggle);
@@ -154,6 +160,7 @@ public class AvailabilityController implements Initializable {
     	wednesdayAvailability = 1;
     	openAvail = 0;
     }
+    
     public void handleWed9to9() {
     	ToggleGroup wedToggle = new ToggleGroup();
     	wednesday9to5.setToggleGroup(wedToggle);
@@ -163,6 +170,7 @@ public class AvailabilityController implements Initializable {
     	wednesdayAvailability = 0;
     	openAvail = 0;
     }
+    
     public void handleThurs1to9() {
     	ToggleGroup thursToggle = new ToggleGroup();
     	thursday9to5.setToggleGroup(thursToggle);
@@ -172,6 +180,7 @@ public class AvailabilityController implements Initializable {
     	thursdayAvailability = 2;
     	openAvail = 0;
     }
+    
     public void handleThurs9to5() {
     	ToggleGroup thursToggle = new ToggleGroup();
     	thursday9to5.setToggleGroup(thursToggle);
@@ -181,6 +190,7 @@ public class AvailabilityController implements Initializable {
     	thursdayAvailability = 1;
     	openAvail = 0;
     }
+    
     public void handleThurs9to9() {
     	ToggleGroup thursToggle = new ToggleGroup();
     	thursday9to5.setToggleGroup(thursToggle);
@@ -190,6 +200,7 @@ public class AvailabilityController implements Initializable {
     	thursdayAvailability = 0;
     	openAvail = 0;
     }
+    
     public void handleFri1to9() {
     	ToggleGroup friToggle = new ToggleGroup();
     	friday9to5.setToggleGroup(friToggle);
@@ -199,6 +210,7 @@ public class AvailabilityController implements Initializable {
     	fridayAvailability = 2;
     	openAvail = 0;
     }
+    
     public void handleFri9to5() {
     	ToggleGroup friToggle = new ToggleGroup();
     	friday9to5.setToggleGroup(friToggle);
@@ -208,6 +220,7 @@ public class AvailabilityController implements Initializable {
     	fridayAvailability = 1;
     	openAvail = 0;
     }
+    
     public void handleFri9to9() {
     	ToggleGroup friToggle = new ToggleGroup();
     	friday9to5.setToggleGroup(friToggle);

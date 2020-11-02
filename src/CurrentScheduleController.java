@@ -1,6 +1,6 @@
 /*
  * @author Patrick Kupcha
- * This is the controller class for the View Current Schedule page
+ * This is the controller class for the View Current Schedule page. There is no input on this page, it will show an employee their current week's schedule for each day of the week.
  */
 
 import java.io.IOException;
@@ -25,6 +25,9 @@ public class CurrentScheduleController implements Initializable{
 		employeeGreeting.setText(username + ", your schedule for the week is as follows:");
 	}
 	
+	/*
+	 * Returns back to the employee home page
+	 */
 	public void handleReturnButton(ActionEvent event) throws IOException {
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("EmployeeHomePage.fxml"));
         Parent root = loader.load();

@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="application.AddEmployeeController">
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddEmployeeController">
    <center>
-      <Pane id="AddE"  prefHeight="600.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <Pane id="AddE" prefHeight="600.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
               <menus>

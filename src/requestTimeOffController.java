@@ -1,3 +1,8 @@
+/*
+ * @author Patrick Kupcha
+ * This is the controller class for the Request Time Off page. Users are able to submit a start and end date for days they would like to be omitted from the work schedule. This request will be visible to any admin for approval/denial.
+ */
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -18,19 +23,20 @@ import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 public class requestTimeOffController implements Initializable {
-	private TextField startDate;
-	private TextField endDate;
-	private Button submitButton;
-	private Button returnButton;
-	private String username = "kupcha";
+	public TextField startDate;
+	public TextField endDate;
+	public Button submitButton;
+	public Button returnButton;
+	public String username = "kupcha";
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
 	}
-	
-	
-	
+
+	/*
+	 * Submits the current selected dates for a time off request for the current user.
+	 */
 	public void handleSubmitButton(ActionEvent event) throws IOException {
 		if (startDate.getText().equals("") || endDate.getText().equals("")) {
 			System.out.println("Must submit both a start date and end date for time off.");
@@ -59,12 +65,12 @@ public class requestTimeOffController implements Initializable {
 		      System.err.println(e.getMessage());
 		    }
 		}
-		
-		
-		
 		return;
 	}
 	
+	/*
+	 * Will return a user to the Employee Home Page
+	 */
 	public void handleReturnButton(ActionEvent event) throws IOException {
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("EmployeeHomePage.fxml"));
         Parent root = loader.load();
