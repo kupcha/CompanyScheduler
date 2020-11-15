@@ -106,7 +106,9 @@ public class EmployerHomeController {
 
 	@FXML
 	void Logout(ActionEvent event) {
-
+	Stage stage = (Stage) Logout.getScene().getWindow();
+	    stage.close();
+	    return;
 	}
 
 	@FXML
