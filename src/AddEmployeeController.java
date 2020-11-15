@@ -1,10 +1,12 @@
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+
+import javax.swing.JOptionPane;
+
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
@@ -116,6 +118,25 @@ public class AddEmployeeController {
 
 	}
 
+	public boolean checkText() {
+		
+		if(first_name.equals("") || last_name.equals("") ||username == null || password == null ||
+				email == null || mobile == null || address == null || city == null || state == null 
+				|| zipcode == null) {
+			
+			return false;
+			
+		}else {
+			
+			return true;
+		}
+		
+		
+		
+		
+		
+	}
+	
 	/*
 	 * Author: Kyle VanWageninge
 	 * 
@@ -127,13 +148,20 @@ public class AddEmployeeController {
 	void AddEmployee(ActionEvent event) {
 
 		getAllText();
-
+		
+		if(!(checkText())){
+			JOptionPane.showMessageDialog(null, "ERROR\nInput left blank\nPlease try again");
+			return;
+		
+		}else {
 		try {
 			db.add(first_name, last_name, username, password, Dob, email, mobile, address, city, state, zipcode, 1, 0);
 		} catch (Exception e) {
 			System.err.println("EXCEPTION!");
 			System.err.println(e.getMessage());
 		}
+		JOptionPane.showMessageDialog(null, "Registration Complete\n New Employee added");
+
 
 		clearAllText();
 		try {
@@ -148,7 +176,7 @@ public class AddEmployeeController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		}
 	}
 
 	/*
