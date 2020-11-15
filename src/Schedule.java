@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /*
  * @author Patrick Kupcha
@@ -6,14 +7,14 @@ import java.util.ArrayList;
  */
 public class Schedule{
 	int totalHours;
-	Staff currentEmployees;
+	ArrayList<User> currentEmployees;
 	ArrayList<Shift> monday;
 	ArrayList<Shift> tuesday;
 	ArrayList<Shift> wednesday;
 	ArrayList<Shift> thursday;
 	ArrayList<Shift> friday;
 	
-	public Schedule(Staff currentStaff, int hoursToSchedule){
+	public Schedule(ArrayList<User> currentStaff, int hoursToSchedule){
 		totalHours = hoursToSchedule;
 		currentEmployees = currentStaff;
 		monday = new ArrayList<Shift>();
@@ -22,7 +23,6 @@ public class Schedule{
 		thursday = new ArrayList<Shift>();
 		friday = new ArrayList<Shift>();
 	}
-	
 	
 	boolean addShift(Shift shiftToAdd) {
 		int day = shiftToAdd.dayOfTheWeek;
@@ -47,8 +47,107 @@ public class Schedule{
 		default: return false;		
 		}
 	}
+	
+	
 	// place holder for future build schedule algo
 	void buildSchedule() {
 		
 	}
+	
+	/**
+	 * 
+	 * @param dayOfTheWeek
+	 * @param hours
+	 * @return number of employees already scheduled at a current date and time, to be used in the build schedule algorithim.
+	 */
+	int howManyScheduled(int dayOfTheWeek, int hours) 
+{
+		if (hours < 0 || hours > 2) {
+			return -1;
+		}else if (dayOfTheWeek < 1 || dayOfTheWeek > 5) {
+			return -1;
+		}
+		int employeesCurrentlyScheduled = 0;
+		switch(dayOfTheWeek) {
+		case 1:
+			for (int i = 0; i < monday.size(); i++) {
+				if (monday.get(i).hours == hours) {
+					employeesCurrentlyScheduled++;
+				}
+			}
+			return employeesCurrentlyScheduled;
+		case 2:
+			for (int i = 0; i < tuesday.size(); i++) {
+				if (tuesday.get(i).hours == hours) {
+					employeesCurrentlyScheduled++;
+				}
+			}
+			return employeesCurrentlyScheduled;
+		case 3:
+			for (int i = 0; i < wednesday.size(); i++) {
+				if (wednesday.get(i).hours == hours) {
+					employeesCurrentlyScheduled++;
+				}
+			}
+			return employeesCurrentlyScheduled;
+		case 4:
+			for (int i = 0; i < thursday.size(); i++) {
+				if (thursday.get(i).hours == hours) {
+					employeesCurrentlyScheduled++;
+				}
+			}
+			return employeesCurrentlyScheduled;
+		case 5:
+			for (int i = 0; i < monday.size(); i++) {
+				if (monday.get(i).hours == hours) {
+					employeesCurrentlyScheduled++;
+				}
+			}
+			return employeesCurrentlyScheduled;
+		default: return 0;
+		}
+		
+	}
+	
+	void printSchedule() {
+		int totalHours = 0;
+		for (int i = 0; i < monday.size(); i++) {
+			Shift currShift = monday.get(i);
+			int day = currShift.dayOfTheWeek;
+			User user = currShift.employee;
+			totalHours += 8;
+			System.out.println(user.username + " working " + day + ", " + currShift.hours + " shift.");
+		}
+		for (int i = 0; i < tuesday.size(); i++) {
+			Shift currShift = tuesday.get(i);
+			int day = currShift.dayOfTheWeek;
+			User user = currShift.employee;
+			totalHours += 8;
+			System.out.println(user.username + " working " + day + ", " + currShift.hours + " shift.");
+		}
+		for (int i = 0; i < wednesday.size(); i++) {
+			Shift currShift = wednesday.get(i);
+			int day = currShift.dayOfTheWeek;
+			User user = currShift.employee;
+			totalHours += 8;
+			System.out.println(user.username + " working " + day + ", " + currShift.hours + " shift.");
+		}
+		for (int i = 0; i < thursday.size(); i++) {
+			Shift currShift = thursday.get(i);
+			int day = currShift.dayOfTheWeek;
+			User user = currShift.employee;
+			totalHours += 8;
+			System.out.println(user.username + " working " + day + ", " + currShift.hours + " shift.");
+		}
+		for (int i = 0; i < friday.size(); i++) {
+			Shift currShift = friday.get(i);
+			int day = currShift.dayOfTheWeek;
+			User user = currShift.employee;
+			totalHours += 8;
+			System.out.println(user.username + " working " + day + ", " + currShift.hours + " shift.");
+		}
+		System.out.println(this.totalHours + " hours available; " + totalHours + " scheduled.");
+	}
+	
+	
 }
