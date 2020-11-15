@@ -181,6 +181,8 @@ public class EmployeeDatabase {
 
 	public int setSchedule(Schedule sched) throws SQLException, ClassNotFoundException {
 		connect();
+		PreparedStatement clear = conn.prepareStatement("UPDATE `CompanyScheduler`.`schedule` SET `monday` = '-1', `tuesday` = '-1', `wednesday` = '-1', `thursday` = '-1', `friday` = '-1';");
+		clear.execute();
 		for (int i = 0; i < sched.monday.size(); i++) {
 			PreparedStatement pst = conn.prepareStatement("UPDATE `CompanyScheduler`.`schedule` SET `monday` = '" + sched.monday.get(i).hours + "' WHERE (`username` = '" + sched.monday.get(i).employee.username + "');");
 			pst.execute();

@@ -21,7 +21,7 @@ public class EmployeeHomeController{
 	public Button availabilityButton;
 	public Button logoutButton;
 	public Button timeOffButton;
-	public String username; // eventually username will get passed to controller before launching scene
+	public String username; // username passed from login
 	public int type; // eventually this will be passed to controller based on sql query
 	public Label welcomeLabel = new Label();
 	public Text employeeStatus = new Text();
@@ -42,6 +42,8 @@ public class EmployeeHomeController{
         Parent root = loader.load();
         Scene currentScheduleScene = new Scene(root);
         CurrentScheduleController controller = loader.getController();
+        controller.username = this.username;
+        controller.setTextValues(controller.username);
         Stage currentScheduleStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         currentScheduleStage.setScene(currentScheduleScene);
         currentScheduleStage.setTitle("Viewing Current Schedule");

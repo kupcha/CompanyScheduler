@@ -22,7 +22,7 @@
                               <Font name="Arial Bold" size="13.0" />
                            </font>
                         </Text>
-                        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" />
+                        <TextArea fx:id="monText" editable="false" prefHeight="200.0" prefWidth="200.0" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" maxHeight="200.0" maxWidth="120.0" minHeight="200.0" minWidth="120.0" prefHeight="200.0" prefWidth="120.0">
@@ -32,7 +32,7 @@
                               <Font name="Arial Bold" size="13.0" />
                            </font>
                         </Text>
-                        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" />
+                        <TextArea fx:id="tuesText" editable="false" prefHeight="200.0" prefWidth="200.0" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" maxHeight="200.0" maxWidth="120.0" minHeight="200.0" minWidth="120.0" prefHeight="200.0" prefWidth="120.0">
@@ -42,7 +42,7 @@
                               <Font name="Arial Bold" size="13.0" />
                            </font>
                         </Text>
-                        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" />
+                        <TextArea fx:id="wedText" editable="false" prefHeight="200.0" prefWidth="200.0" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" maxHeight="200.0" maxWidth="120.0" minHeight="200.0" minWidth="120.0" prefHeight="200.0" prefWidth="120.0">
@@ -52,7 +52,7 @@
                               <Font name="Arial Bold" size="13.0" />
                            </font>
                         </Text>
-                        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" />
+                        <TextArea fx:id="thursText" editable="false" prefHeight="200.0" prefWidth="200.0" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" maxHeight="200.0" maxWidth="120.0" minHeight="200.0" minWidth="120.0" prefHeight="200.0" prefWidth="120.0">
@@ -62,7 +62,7 @@
                               <Font name="Arial Bold" size="13.0" />
                            </font>
                         </Text>
-                        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" />
+                        <TextArea fx:id="friText" editable="false" prefHeight="200.0" prefWidth="200.0" />
                      </children>
                   </VBox>
                </children>
