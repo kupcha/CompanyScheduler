@@ -39,6 +39,7 @@ public class AvailabilityController implements Initializable {
 	public RadioButton friday1to9;
 	public RadioButton friday9to9;
 	public String username; // in the future this will be set when scene is launched
+	public int type;
 	public int employeeType = 0;
 	public int openAvail; // 0 not open, 1 open availability
 	public int mondayAvailability; // 0 open (9am-9pm), 1 morning shift (9am-5pm), 2 evening (1pm-9pm)
@@ -50,9 +51,11 @@ public class AvailabilityController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+	}
+	
+	public void setTextValues() {
 		if (employeeType == 0) {
-			employeeGreeting
-					.setText(username + ", you are a full-time employee and will be allocated 40 hours per week.");
+			employeeGreeting.setText(username + ", you are a full-time employee and will be allocated 40 hours per week.");
 		} else {
 			employeeGreeting.setText(
 					username + ", you are a part-time employee and will be allocated less than 40 hours per week.");
@@ -266,6 +269,9 @@ public class AvailabilityController implements Initializable {
 		Parent root = loader.load();
 		Scene employeeHomeScene = new Scene(root);
 		EmployeeHomeController controller = loader.getController();
+		controller.username = username;
+		controller.type = type;
+		controller.setTextValues();
 		Stage employeeHomeStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		employeeHomeStage.setScene(employeeHomeScene);
 		employeeHomeStage.setTitle("Employee Home");

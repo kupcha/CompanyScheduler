@@ -27,7 +27,8 @@ public class requestTimeOffController implements Initializable {
 	public TextField endDate;
 	public Button submitButton;
 	public Button returnButton;
-	public String username = "kupcha";
+	public String username;
+	public int type;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -52,10 +53,10 @@ public class requestTimeOffController implements Initializable {
 
 		      // our SQL SELECT query.
 		      // if you only need a few columns, specify them by name instead of using "*"
-		      String query = "INSERT INTO `CompanyScheduler`.`timeoffRequests` (`username`, `startDate`, `endDate`) VALUES ('" + username + "', '" + startDate + "', '" + endDate + "');";
+		      String query = "INSERT INTO `CompanyScheduler`.`timeoffRequests` (`username`, `startDate`, `endDate`) VALUES ('" + username + "', '" + startDate.getText() + "', '" + endDate.getText() + "');";
 		      // create the java statement
 		      Statement st = conn.createStatement();
-		      st.executeQuery(query);
+		      st.execute(query);
 		      st.close();
 		      System.out.println("Request successfully submitted.");
 		    }
@@ -76,6 +77,7 @@ public class requestTimeOffController implements Initializable {
         Parent root = loader.load();
         Scene employeeHomeScene = new Scene(root);
         EmployeeHomeController controller = loader.getController();
+        controller.username = username;
         Stage employeeHomeStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         employeeHomeStage.setScene(employeeHomeScene);
         employeeHomeStage.setTitle("Employee Home");

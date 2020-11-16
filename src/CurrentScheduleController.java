@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 
 public class CurrentScheduleController implements Initializable{
 	public String username; // this will eventually get passed to controller
+	public int type;
 	public Text employeeGreeting;
 	public TextArea monText;
 	public TextArea tuesText;
@@ -95,6 +96,9 @@ public class CurrentScheduleController implements Initializable{
         Parent root = loader.load();
         Scene employeeHomeScene = new Scene(root);
         EmployeeHomeController controller = loader.getController();
+        controller.username = username;
+        controller.type = type;
+        controller.setTextValues();
         Stage employeeHomeStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         employeeHomeStage.setScene(employeeHomeScene);
         employeeHomeStage.setTitle("Employee Home");

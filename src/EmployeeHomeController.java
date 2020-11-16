@@ -43,6 +43,7 @@ public class EmployeeHomeController{
         Scene currentScheduleScene = new Scene(root);
         CurrentScheduleController controller = loader.getController();
         controller.username = this.username;
+        controller.type = type;
         controller.setTextValues(controller.username);
         Stage currentScheduleStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         currentScheduleStage.setScene(currentScheduleScene);
@@ -59,6 +60,8 @@ public class EmployeeHomeController{
         Parent root = loader.load();
         Scene requestTimeOffScene = new Scene(root);
         requestTimeOffController controller = loader.getController();
+        controller.username = username;
+        controller.type = type;
         Stage requestTimeOffStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         requestTimeOffStage.setScene(requestTimeOffScene);
         requestTimeOffStage.setTitle("Request Time Off");
@@ -83,6 +86,9 @@ public class EmployeeHomeController{
         Parent root = loader.load();
         Scene availabilityScene = new Scene(root);
         AvailabilityController controller = loader.getController();
+        controller.username = username;
+        controller.type = type;
+        controller.setTextValues();
         Stage availabilityStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         availabilityStage.setScene(availabilityScene);
         availabilityStage.setTitle("Request Time Off");
