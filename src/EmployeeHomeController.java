@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 public class EmployeeHomeController{
 	public Button checkScheduleButton;
@@ -73,6 +74,7 @@ public class EmployeeHomeController{
 	 * Will log the user out of the program and close.
 	 */
 	public void handleLogout(ActionEvent event) throws IOException{
+		JOptionPane.showMessageDialog(null, "You are now logging out.");
 	    Stage stage = (Stage) logoutButton.getScene().getWindow();
 	    stage.close();
 	    return;

@@ -11,6 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.Node;
+import javax.swing.JOptionPane;
 
 public class EmployerHomeController {
 
@@ -86,6 +87,7 @@ public class EmployerHomeController {
 
 	@FXML
 	void CreateSchedule(ActionEvent event) {
+		
 			
 			Staff staffList;
 			try {
@@ -106,6 +108,7 @@ public class EmployerHomeController {
 
 	@FXML
 	void Logout(ActionEvent event) {
+	JOptionPane.showMessageDialog(null, "You are now logging out.");
 	Stage stage = (Stage) Logout.getScene().getWindow();
 	    stage.close();
 	    return;

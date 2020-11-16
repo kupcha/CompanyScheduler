@@ -17,6 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javafx.event.ActionEvent;
 
 public class LogInController {
@@ -51,7 +52,14 @@ public class LogInController {
     void LoginAction(ActionEvent event) throws IOException, SQLException, ClassNotFoundException{
     	
     	username = userNameTxt.getText();
-    	password = passwordTxt.getText();	
+    	password = passwordTxt.getText();
+    	
+        if(username.equals("") && password.equals("")) {
+        	JOptionPane.showMessageDialog(null, "UserName or Password Blank");
+        	return;
+        }
+        else {
+        	
         	try {
         		
         	    String dbuser = "cs431";
@@ -74,6 +82,7 @@ public class LogInController {
       	      		
       	      		//0 means admin/employer
       	      		if (access == 0) {
+      	      			JOptionPane.showMessageDialog(null, "Login Success\n Welcome Admin");
       	      			FXMLLoader loader = new FXMLLoader(getClass().getResource("EmployerGUI.fxml"));
       	      			Parent root = loader.load();
       	      			Scene employeeHomeScene = new Scene(root);
@@ -85,6 +94,7 @@ public class LogInController {
     		        	return;
       	      		}
       	      		else if (access == 1) {
+      	      			JOptionPane.showMessageDialog(null, "Login Success\n Welcome User");
       	      			FXMLLoader loader = new FXMLLoader(getClass().getResource("EmployeeHomePage.fxml"));
       	      			Parent root = loader.load();
       	      			Scene employeeHomeScene = new Scene(root);
@@ -99,6 +109,7 @@ public class LogInController {
       	      		}
       	      	}
       	      	else {
+      	      		JOptionPane.showMessageDialog(null, "Login Failed");
         	    	userNameTxt.setText("");
         	    	passwordTxt.setText("");
         	    	userNameTxt.requestFocus();
@@ -112,7 +123,10 @@ public class LogInController {
         	catch(SQLException ex) {
         		
         		Logger.getLogger(LogInController.class.getName()).log(Level.SEVERE, null, ex);
-        	}	
+        	}
+        	
+        }
+    	
     }
     
 }
