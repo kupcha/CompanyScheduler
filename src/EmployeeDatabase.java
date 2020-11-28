@@ -1,6 +1,13 @@
 
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+
+
 
 public class EmployeeDatabase {
 	Connection conn = null;
@@ -89,6 +96,146 @@ public class EmployeeDatabase {
 
 	}
 
+	public void acceptedRequest(String request) throws SQLException, ClassNotFoundException, ParseException
+	{
+		
+		
+		//Statement st = conn.createStatement();
+		//ResultSet rs = pst.executeQuery();
+		
+		
+		String[] splitRequest = request.split(" ");
+		
+		
+		DateFormat df = new SimpleDateFormat("yyy-MM-dd");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		
+		
+		String username = splitRequest[0];
+		splitRequest[1] = splitRequest[1].concat(" 00:00:00");
+		Date startDate = dateFormat.parse(splitRequest[1]);
+		Date startDate2 = startDate;
+		Date endDate = df.parse(splitRequest[3]);
+		
+		
+		Calendar cal = Calendar.getInstance();
+		
+		//int currentday = startDate.getDay();
+		
+		cal.setTime(startDate2);
+		cal.set(Calendar.DAY_OF_WEEK, cal.getFirstDayOfWeek());
+		
+		
+		System.out.println(startDate);
+		System.out.println(df.format(cal.getTime()));
+		java.sql.Date date1 = new java.sql.Date(startDate.getTime());
+		java.sql.Date datew = new java.sql.Date((df.parse(df.format(cal.getTime()))).getTime());
+		java.sql.Date date2 = new java.sql.Date(endDate.getTime());
+		
+		String startD = dateFormat.format(startDate);
+		String endD = dateFormat.format(df.parse(splitRequest[3]));
+		
+		
+		
+		
+		
+		String week = dateFormat.format(cal.getTime());
+		if(!(splitRequest[splitRequest.length-1]).equals("Denied"))
+		{	
+		
+		connect();
+		String query = "INSERT INTO AcceptedRequests (username, weekOf, startDate, endDate, prevAvail)"
+				+ "VALUES (?, ?, ?, ?, ?)";
+		PreparedStatement pst = conn.prepareStatement(query);
+		
+		pst.setString(1, username);
+		pst.setDate(2, datew);		
+		pst.setDate(3, date1);
+		pst.setDate(4, date2 );
+		pst.setInt(5, -1);
+		
+		
+		pst.execute();
+		conn.close();
+		}
+		
+		connect();
+		String query2 = "DELETE FROM timeoffRequests WHERE username = ? AND endDate = ?";
+		
+		PreparedStatement pst2 = conn.prepareStatement(query2);
+		
+		System.out.println(date1);
+		
+		pst2.setString(1, username);	
+		//pst2.setDate(2, date1);
+		pst2.setString(2, df.format(date2));
+	
+		
+		
+		pst2.execute();
+		conn.close();
+		
+		
+		
+		}
+		
+		
+		
+		
+		
+	
+	
+	
+	
+	public ArrayList getRequests() throws SQLException, ClassNotFoundException
+	{
+		
+		ArrayList<String> request = new ArrayList<String>();
+
+		connect();
+		
+		PreparedStatement pst = conn.prepareStatement("SELECT * FROM timeoffRequests");
+		//Statement st = conn.createStatement();
+		ResultSet rs = pst.executeQuery();
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		
+		
+		
+		while(rs.next())
+		{
+			
+			String un = rs.getString(1);
+			Date firstDate = new Date();
+			firstDate = rs.getDate(2);
+			String strFirst = dateFormat.format(firstDate);
+			
+			Date secondDate = new Date();
+			secondDate = rs.getDate(3);
+			String strSecond = dateFormat.format(secondDate);
+			
+			String fullRequest = un;
+			
+			fullRequest = fullRequest.concat(" " + strFirst + " - " + strSecond);
+			
+			
+			request.add(fullRequest);
+			
+			
+			
+		}
+		
+		
+		conn.close();
+		
+		
+		
+		
+		return request;
+		
+	}
+	
+	
+	
 	public Staff creating() throws SQLException, ClassNotFoundException
 	{
 		Staff staffList = new Staff();
