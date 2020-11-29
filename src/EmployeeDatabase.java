@@ -100,7 +100,51 @@ public class EmployeeDatabase {
 		return true;
 
 	}
-
+public ArrayList<Employee> getEmployees() throws SQLException, ClassNotFoundException, ParseException
+	{
+		
+		ArrayList<Employee> requestList = new ArrayList<Employee>();
+		//ArrayList<Request> added = new ArrayList<Request>();
+		connect();
+		
+		PreparedStatement pst = conn.prepareStatement("SELECT * FROM employees");
+		//Statement st = conn.createStatement();
+		ResultSet rs = pst.executeQuery();
+		while(rs.next())
+		{
+			String un = rs.getString(1);
+			String pw = rs.getString(2);
+			String fn = rs.getString(3);
+			String ln = rs.getString(4);
+			Date dateBirth = rs.getDate(5);
+			String email = rs.getString(6);
+			String phone = rs.getString(7);
+			String add = rs.getString(8);
+			String city = rs.getString(9);
+			String state = rs.getString(10);
+			String zip = rs.getString(11);
+			
+			int access = rs.getInt(12);
+			int type = rs.getInt(13);
+		//Request request = new Request(user, weekOf, start, end, prevAvail);
+		
+			if(access == 1)
+		{
+			Employee newE = new Employee(type, fn, ln, un, pw, email, phone, null, add);
+			 requestList.add(newE);
+			
+		}
+		
+		
+		
+		}
+		
+		conn.close();
+		
+		return requestList;
+		
+		
+	}
 	public void acceptedRequest(String request) throws SQLException, ClassNotFoundException, ParseException
 	{
 		
