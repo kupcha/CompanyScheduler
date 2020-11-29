@@ -85,7 +85,19 @@ public class EmployerHomeController {
 
 	@FXML
 	void ChangeEmployee(ActionEvent event) {
+		try {
 
+			BorderPane second = FXMLLoader.load(getClass().getResource("ViewEmployees.fxml"));
+			Scene scene2 = new Scene(second, 600, 600);
+			Stage secondStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			secondStage.setTitle("View Employee");
+			secondStage.setScene(scene2);
+			secondStage.show();
+		}
+
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	public Scene loginScene;
 	@FXML
