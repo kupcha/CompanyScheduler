@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="EmployerHomeController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EmployerHomeController">
   <children>
     <MenuBar style="-fx-background-color: lightgrey;" VBox.vgrow="NEVER">
       <menus>
@@ -73,7 +73,7 @@
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="CreateS" layoutX="420.0" layoutY="29.0" mnemonicParsing="false" onAction="#CreateSchedule" text="Create Schedule" textFill="#14a800">
+            <Button fx:id="CreateS" layoutX="420.0" layoutY="29.0" mnemonicParsing="false" onAction="#goToCreateSchedule" text="Create Schedule" textFill="#14a800">
                <font>
                   <Font size="16.0" />
                </font>

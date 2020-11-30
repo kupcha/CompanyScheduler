@@ -30,16 +30,20 @@ public class CurrentScheduleController implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
 	}
 	
 	
-	public void setTextValues(String username) {
+	public void setTextValues() {
 		employeeGreeting.setText(username + ", your schedule for the week is as follows:");
 		EmployeeDatabase db = new EmployeeDatabase();
 		try {
-			db.connect();
-			PreparedStatement ps = db.conn.prepareStatement("SELECT monday, tuesday, wednesday, thursday, friday FROM CompanyScheduler.schedule where username = \"" + username + "\";");
+			String dbuser = "cs431";
+			String dbpassw = "satisfaction";
+			// String databasename = "java_cinemaTickets";
+			String url = "jdbc:mysql://cs431db.cnzuynuyygsz.us-east-2.rds.amazonaws.com:3306/CompanyScheduler";
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection conn = DriverManager.getConnection(url, dbuser, dbpassw);
+			PreparedStatement ps = conn.prepareStatement("SELECT monday, tuesday, wednesday, thursday, friday FROM CompanyScheduler.schedule where username = \"" + username + "\";");
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				int mon = rs.getInt(1);
@@ -51,7 +55,7 @@ public class CurrentScheduleController implements Initializable{
 				int tues = rs.getInt(2);
 				if (tues == 1) {
 					tuesText.setText("9AM to 5 PM");
-				}else if (mon == 2) {
+				}else if (tues == 2) {
 					tuesText.setText("1PM to 9PM");
 				}
 				int wed = rs.getInt(3);
@@ -63,28 +67,20 @@ public class CurrentScheduleController implements Initializable{
 				int thurs = rs.getInt(4);
 				if (thurs == 1) {
 					thursText.setText("9AM to 5 PM");
-				}else if (mon == 2) {
+				}else if (thurs == 2) {
 					thursText.setText("1PM to 9PM");
 				}
 				int fri = rs.getInt(5);
 				if (fri == 1) {
 					friText.setText("9AM to 5 PM");
-				}else if (mon == 2) {
+				}else if (fri == 2) {
 					friText.setText("1PM to 9PM");
 				}
-				
-				
 			}
-			
-			
-			
 		} catch (ClassNotFoundException | SQLException e) {
 			System.out.println("EXCEPTION with SQL query.");
 			e.printStackTrace();
-		}	
-		
-		
-		
+		}		
 	}
 	
 	

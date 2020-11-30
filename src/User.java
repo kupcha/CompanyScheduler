@@ -67,9 +67,12 @@ public class User {
 	int getAccess() {
 		return access;
 	}
+	
 	String getUsername() {		
 		return username;
 	}
+	
+	
 	void setAvailability(int monday, int tuesday, int wednesday, int thursday, int friday) {
 		mondayAvailability = monday;
 		tuesdayAvailability = tuesday;

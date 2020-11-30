@@ -45,7 +45,7 @@ public class EmployeeHomeController{
         CurrentScheduleController controller = loader.getController();
         controller.username = this.username;
         controller.type = type;
-        controller.setTextValues(controller.username);
+        controller.setTextValues();
         Stage currentScheduleStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         currentScheduleStage.setScene(currentScheduleScene);
         currentScheduleStage.setTitle("Viewing Current Schedule");
@@ -74,7 +74,7 @@ public class EmployeeHomeController{
 	 * Will log the user out of the program and close.
 	 */
 	public void handleLogout(ActionEvent event) throws IOException{
-		JOptionPane.showMessageDialog(null, "You are now logging out.");
+		//JOptionPane.showMessageDialog(null, "You are now logging out.");
 	    Stage stage = (Stage) logoutButton.getScene().getWindow();
 	    stage.close();
 	    return;

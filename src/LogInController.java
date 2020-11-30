@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -36,7 +37,7 @@ public class LogInController {
     public TextField userNameTxt;
 
     @FXML
-    public TextField passwordTxt;
+    public PasswordField passwordTxt;
     public String username;
     public String password;
 
@@ -55,7 +56,7 @@ public class LogInController {
     	password = passwordTxt.getText();
     	
         if(username.equals("") && password.equals("")) {
-        	JOptionPane.showMessageDialog(null, "UserName or Password Blank");
+        	//JOptionPane.showMessageDialog(null, "UserName or Password Blank");
         	return;
         }
         else {
@@ -82,7 +83,7 @@ public class LogInController {
       	      		
       	      		//0 means admin/employer
       	      		if (access == 0) {
-      	      			JOptionPane.showMessageDialog(null, "Login Success\n Welcome Admin");
+      	      			//JOptionPane.showMessageDialog(null, "Login Success\n Welcome Admin");
       	      			FXMLLoader loader = new FXMLLoader(getClass().getResource("EmployerGUI.fxml"));
       	      			Parent root = loader.load();
       	      			Scene employeeHomeScene = new Scene(root);
@@ -94,7 +95,7 @@ public class LogInController {
     		        	return;
       	      		}
       	      		else if (access == 1) {
-      	      			JOptionPane.showMessageDialog(null, "Login Success\n Welcome User");
+      	      			//JOptionPane.showMessageDialog(null, "Login Success\n Welcome User");
       	      			FXMLLoader loader = new FXMLLoader(getClass().getResource("EmployeeHomePage.fxml"));
       	      			Parent root = loader.load();
       	      			Scene employeeHomeScene = new Scene(root);
@@ -109,7 +110,7 @@ public class LogInController {
       	      		}
       	      	}
       	      	else {
-      	      		JOptionPane.showMessageDialog(null, "Login Failed");
+      	      		//JOptionPane.showMessageDialog(null, "Login Failed");
         	    	userNameTxt.setText("");
         	    	passwordTxt.setText("");
         	    	userNameTxt.requestFocus();
