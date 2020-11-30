@@ -1,4 +1,4 @@
-
+  
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -589,6 +589,3 @@ ArrayList<String> weekDays = new ArrayList<String>();
 		return 1;
 	}
 }
-	
-	
-	
