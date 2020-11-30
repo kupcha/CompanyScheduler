@@ -26,6 +26,15 @@ public class CreateScheduleController{
 	public DatePicker startingDate;
 
 	public void createSchedule(ActionEvent event) throws ClassNotFoundException, SQLException {
+		if (budgetHours.getText() == "") {
+			System.out.println("Must input how many total hours to be scheduled.");
+			return;
+		}
+		int hoursToSchedule = Integer.parseInt(budgetHours.getText());
+		if (hoursToSchedule <= 0) {
+			System.out.println("Must input a positive number of hours to be scheduled.");
+			return;
+		}
 			
 			Staff staffList;
 			ArrayList<Request> added = db.timeoffCheck();
@@ -34,7 +43,7 @@ public class CreateScheduleController{
 			staffList.setAvail();
 			staffList.printStaffMembers();
 			System.out.println("Now creating schedule...");
-			Schedule sched = createScheduleHelper(staffList, 200);
+			Schedule sched = createScheduleHelper(staffList, hoursToSchedule);
 			System.out.println("Finished schedule!");
 			//JOptionPane.showMessageDialog(null, "Schedule Created!");
 			db.setSchedule(sched);
