@@ -75,5 +75,4 @@ public class Request {
 	{
 		return user;
 	}
-	
 }
