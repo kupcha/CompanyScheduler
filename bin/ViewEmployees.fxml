@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewEmployeesController">
+   <center>
+      <Pane id="ViewE" prefHeight="500.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <ListView fx:id="EmployeeL" layoutX="86.0" layoutY="86.0" prefHeight="414.0" prefWidth="428.0" />
+                       <Button fx:id="Populate" layoutX="86.0" layoutY="516.0" mnemonicParsing="false" onAction="#Populate" prefHeight="45.0" prefWidth="110.0" text="Populate" />
+           
+            <Button fx:id="Back" layoutX="404.0" layoutY="516.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="45.0" prefWidth="110.0" text="Go Back" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

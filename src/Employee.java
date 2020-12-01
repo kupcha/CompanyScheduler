@@ -9,12 +9,11 @@ public class Employee extends User {
 		this.type = type;
 		access = 1;
 	}
-public String getEmployee() {
 	
-	
-	
+	public String getEmployee() {
 	return firstName + " " + lastName +  " " + address;
 }
+
 	boolean changeType(int type) {
 		if (this.type == type)
 			return false;

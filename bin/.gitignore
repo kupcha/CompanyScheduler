@@ -1,6 +1,3 @@
-/EmployerViewScheduleController.class
-/ViewSchedule.fxml
-/Request.class
-/ViewEmployees.fxml
-/ViewEmployeesController.class
-/CreateSchedule.fxml
+/ScheduleJUnitTester.class
+/ShiftJUnitTester.class
+/StaffJUnitTester.class

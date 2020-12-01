@@ -30,7 +30,12 @@ public class Staff {
 		}
 	}
 	boolean addStaffMember(User newStaff) {
-		return currentStaff.add(newStaff);
+		if (this.isStaff(newStaff)) {
+			return false;
+		}else {
+			return currentStaff.add(newStaff);
+		}
+		
 	}
 
 	/**
@@ -58,10 +63,15 @@ public class Staff {
 	/**
 	 * This function prints information about each User on the staff list
 	 */
-	void printStaffMembers() {
+	String printStaffMembers() {
+		String out = "";
 		for (int i = 0; i < currentStaff.size(); i++) {
-			System.out.println(currentStaff.get(i).toString());
+			if (i > 0) {
+				out += "\n";
+			}
+			out += currentStaff.get(i).toString();
 		}
+		return out;
 	}
 
 }

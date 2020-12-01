@@ -50,7 +50,7 @@ public class EmployerViewScheduleController implements Initializable{
 				continue;
 			}
 			else if (hours == 1) {
-				mondayList += "8AM-4PM\n" + monRS.getString(2) + " " + monRS.getString(3) + "\n";
+				mondayList += "9AM-5PM\n" + monRS.getString(2) + " " + monRS.getString(3) + "\n";
 			}
 			else if (hours == 2) {
 				mondayList += "1-9PM\n" + monRS.getString(2) + " " + monRS.getString(3) + "\n";
@@ -65,7 +65,7 @@ public class EmployerViewScheduleController implements Initializable{
 				continue;
 			}
 			else if (hours == 1) {
-				tuesdayList += "8AM-4PM\n" + tuesRS.getString(2) + " " + tuesRS.getString(3) + "\n";
+				tuesdayList += "9AM-5PM\n" + tuesRS.getString(2) + " " + tuesRS.getString(3) + "\n";
 			}
 			else if (hours == 2) {
 				tuesdayList += "1-9PM\n" + tuesRS.getString(2) + " " + tuesRS.getString(3) + "\n";
@@ -80,7 +80,7 @@ public class EmployerViewScheduleController implements Initializable{
 				continue;
 			}
 			else if (hours == 1) {
-				wednesdayList += "8AM-4PM\n" + wedRS.getString(2) + " " + wedRS.getString(3) + "\n";
+				wednesdayList += "9AM-5PM\n" + wedRS.getString(2) + " " + wedRS.getString(3) + "\n";
 			}
 			else if (hours == 2) {
 				wednesdayList += "1-9PM\n" + wedRS.getString(2) + " " + wedRS.getString(3) + "\n";
@@ -95,7 +95,7 @@ public class EmployerViewScheduleController implements Initializable{
 				continue;
 			}
 			else if (hours == 1) {
-				thursdayList += "8AM-4PM\n" + thursRS.getString(2) + " " + thursRS.getString(3) + "\n";
+				thursdayList += "9AM-5PM\n" + thursRS.getString(2) + " " + thursRS.getString(3) + "\n";
 			}
 			else if (hours == 2) {
 				thursdayList += "1-9PM\n" + thursRS.getString(2) + " " + thursRS.getString(3) + "\n";
@@ -110,7 +110,7 @@ public class EmployerViewScheduleController implements Initializable{
 				continue;
 			}
 			else if (hours == 1) {
-				fridayList += "8AM-4PM\n" + friRS.getString(2) + " " + friRS.getString(3) + "\n";
+				fridayList += "9AM-5PM\n" + friRS.getString(2) + " " + friRS.getString(3) + "\n";
 			}
 			else if (hours == 2) {
 				fridayList += "1-9PM\n" + friRS.getString(2) + " " + friRS.getString(3) + "\n";

@@ -35,18 +35,20 @@ public class CreateScheduleController{
 			System.out.println("Must input a positive number of hours to be scheduled.");
 			return;
 		}
-			
-			Staff staffList;
-			ArrayList<Request> added = db.timeoffCheck();
-			try {
+		Staff staffList;
+		ArrayList<Request> added = db.timeoffCheck();
+		try {
+			//get StaffList from database
 			staffList = db.creating();
 			staffList.setAvail();
-			staffList.printStaffMembers();
-			System.out.println("Now creating schedule...");
+			//staffList.printStaffMembers();
+			//System.out.println("Now creating schedule...");
 			Schedule sched = createScheduleHelper(staffList, hoursToSchedule);
-			System.out.println("Finished schedule!");
+			//System.out.println("Finished schedule!");
 			//JOptionPane.showMessageDialog(null, "Schedule Created!");
+			//update each employees schedule table in database
 			db.setSchedule(sched);
+			//launch employer view of the new schedule
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewSchedule.fxml"));
 			Parent root = loader.load();
 			Scene viewFullScheduleScene = new Scene(root);
@@ -56,7 +58,6 @@ public class CreateScheduleController{
 			viewScheduleStage.setScene(viewFullScheduleScene);
 			viewScheduleStage.setTitle("Full Staff Schedule");
 			viewScheduleStage.show();
-			
 			}catch(Exception e) {
 				System.err.println("EXCEPTION!");
 				System.err.println(e.getMessage());
@@ -67,7 +68,7 @@ public class CreateScheduleController{
 		}
 
 			
-	Schedule createScheduleHelper(Staff staff, int budgetHours) {
+	public Schedule createScheduleHelper(Staff staff, int budgetHours) {
 		ArrayList<Employee> currentStaff = new ArrayList<Employee>();
 		for (int i = 0; i < staff.currentStaff.size(); i++) {
 			if (staff.currentStaff.get(i).access == 1) {
@@ -119,7 +120,6 @@ public class CreateScheduleController{
 		//update open availability to whatever shift is most needed
 		// do this for each day of the week
 		System.out.println("Slotted all full timers shifts.");
-		sched.printSchedule();
 		for (i = 0; i < sched.monday.size(); i++) {
 			//if we reach shifts already scheduled day/night we can move on
 			if (sched.monday.get(i).hours != 0) {
@@ -187,7 +187,7 @@ public class CreateScheduleController{
 				}
 			}
 		}
-		sched.printSchedule();
+		//sched.printSchedule();
 		//at this point -- full time employees have a shift each day of the week
 		//start of partTimeIndex
 		int curr = partTimeIndex;
@@ -298,12 +298,6 @@ public class CreateScheduleController{
 				day++;
 			}
 		}
-		sched.printSchedule();
-		
-		
-		
-		
-		
 		return sched;
 	}
 	

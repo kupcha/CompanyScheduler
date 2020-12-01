@@ -84,12 +84,7 @@ public class User {
 	@Override
 	public String toString() {
 		String userDescription = "";
-		userDescription += "USER: " + firstName + " " + lastName + ". USERNAME: " + username + ".";
-		userDescription += " Mon Availability: " + mondayAvailability;
-		userDescription += " Tues Availability: " + tuesdayAvailability;
-		userDescription += " Wed Availability: " + wednesdayAvailability;				
-		userDescription += " Thur Availability: " + thursdayAvailability;		
-		userDescription += " Fri Availability: " + fridayAvailability;		
+		userDescription += "USER: " + firstName + " " + lastName + ". USERNAME: " + username + ".";	
 		return userDescription;
 	}
 

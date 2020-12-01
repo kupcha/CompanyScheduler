@@ -27,11 +27,36 @@ public class Schedule{
 	boolean addShift(Shift shiftToAdd) {
 		int day = shiftToAdd.dayOfTheWeek;
 		switch(day) {
-		case 1: return monday.add(shiftToAdd);
-		case 2: return tuesday.add(shiftToAdd);
-		case 3: return wednesday.add(shiftToAdd);
-		case 4: return thursday.add(shiftToAdd);
-		case 5: return friday.add(shiftToAdd);
+		case 1: 
+			if (this.monday.contains(shiftToAdd)){
+				return false;
+			}else {
+				return monday.add(shiftToAdd);
+			}
+		case 2: 			
+			if (this.tuesday.contains(shiftToAdd)){
+				return false;
+			}else {
+				return tuesday.add(shiftToAdd);
+			}
+		case 3: 
+			if (this.wednesday.contains(shiftToAdd)){
+				return false;
+			}else {
+				return wednesday.add(shiftToAdd);
+			}
+		case 4: 
+			if (this.thursday.contains(shiftToAdd)){
+				return false;
+			}else {
+				return thursday.add(shiftToAdd);
+			}
+		case 5: 
+			if (this.friday.contains(shiftToAdd)){
+				return false;
+			}else {
+				return friday.add(shiftToAdd);
+			}
 		default: return false;		
 		}
 	}
@@ -46,12 +71,6 @@ public class Schedule{
 		case 5: return friday.remove(shiftToRemove);
 		default: return false;		
 		}
-	}
-	
-	
-	// place holder for future build schedule algo
-	void buildSchedule() {
-		
 	}
 	
 	/**
@@ -108,46 +127,4 @@ public class Schedule{
 		}
 		
 	}
-	
-	void printSchedule() {
-		int totalHours = 0;
-		for (int i = 0; i < monday.size(); i++) {
-			Shift currShift = monday.get(i);
-			int day = currShift.dayOfTheWeek;
-			User user = currShift.employee;
-			totalHours += 8;
-			System.out.println(user.username + " working " + day + ", " + currShift.hours + " shift.");
-		}
-		for (int i = 0; i < tuesday.size(); i++) {
-			Shift currShift = tuesday.get(i);
-			int day = currShift.dayOfTheWeek;
-			User user = currShift.employee;
-			totalHours += 8;
-			System.out.println(user.username + " working " + day + ", " + currShift.hours + " shift.");
-		}
-		for (int i = 0; i < wednesday.size(); i++) {
-			Shift currShift = wednesday.get(i);
-			int day = currShift.dayOfTheWeek;
-			User user = currShift.employee;
-			totalHours += 8;
-			System.out.println(user.username + " working " + day + ", " + currShift.hours + " shift.");
-		}
-		for (int i = 0; i < thursday.size(); i++) {
-			Shift currShift = thursday.get(i);
-			int day = currShift.dayOfTheWeek;
-			User user = currShift.employee;
-			totalHours += 8;
-			System.out.println(user.username + " working " + day + ", " + currShift.hours + " shift.");
-		}
-		for (int i = 0; i < friday.size(); i++) {
-			Shift currShift = friday.get(i);
-			int day = currShift.dayOfTheWeek;
-			User user = currShift.employee;
-			totalHours += 8;
-			System.out.println(user.username + " working " + day + ", " + currShift.hours + " shift.");
-		}
-		System.out.println(this.totalHours + " hours available; " + totalHours + " scheduled.");
-	}
-	
-	
 }

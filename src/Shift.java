@@ -11,6 +11,28 @@ public class Shift{
 		this.dayOfTheWeek = dayOfTheWeek;
 	}
 	
+	public User whoIsWorking() {
+		return this.employee;
+	}
+	
+	public boolean changeHours(int newHours) {
+		if (this.hours == newHours) {
+			return false;
+		}else {
+			this.hours = newHours;
+			return true;
+		}
+	}
+	
+	public boolean changeWorkDay(int newDay) {
+		if (this.dayOfTheWeek == newDay) {
+			return false;
+		}else {
+			this.dayOfTheWeek = newDay;
+			return true;
+		}
+	}
+	
 	
 	
     public static Comparator<Shift> shiftHours = new Comparator<Shift>() {
