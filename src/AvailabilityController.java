@@ -242,12 +242,41 @@ public class AvailabilityController implements Initializable {
 			Class.forName(myDriver);
 			Connection conn = DriverManager.getConnection(myUrl, "cs431", "satisfaction");
 			// our SQL SELECT query.
-			String query;
+			String query = "UPDATE `CompanyScheduler`.`availability` SET";
+			int daysSelected = 0;
 			if (openAvail == 0) {
-				query = "UPDATE `CompanyScheduler`.`availability` SET `monday` = '" + mondayAvailability
-						+ "', `tuesday` = '" + tuesdayAvailability + "', `wednesday` = '" + wednesdayAvailability
-						+ "', `thursday` = '" + thursdayAvailability + "', `friday` = '" + fridayAvailability
-						+ "' WHERE (`username` = '" + username + "');";
+				if (monday9to9.isSelected() || monday9to5.isSelected() || monday1to9.isSelected()) {
+					query += " `monday` = '" + mondayAvailability + "'";
+					daysSelected++;
+				}
+				if (tuesday9to9.isSelected() || tuesday9to5.isSelected() || tuesday1to9.isSelected()) {
+					if (daysSelected > 0) {
+						query += ", ";
+					}
+					query += "`tuesday` = '" + tuesdayAvailability + "'";
+					daysSelected++;
+				}
+				if (wednesday9to9.isSelected() || wednesday9to5.isSelected() || wednesday1to9.isSelected()) {
+					if (daysSelected > 0) {
+						query += ", ";
+					}
+					query += "`wednesday` = '" + wednesdayAvailability + "'";
+					daysSelected++;
+				}
+				if (thursday9to9.isSelected() || thursday9to5.isSelected() || thursday1to9.isSelected()) {
+					if (daysSelected > 0) {
+						query += ", ";
+					}
+					query += "`thursday` = '" + thursdayAvailability + "'";
+					daysSelected++;
+				}
+				if (friday9to9.isSelected() || friday9to5.isSelected() || friday1to9.isSelected()) {
+					if (daysSelected > 0) {
+						query += ", ";
+					}
+					query += "`friday` = '" + fridayAvailability + "'";
+				}
+				query += "WHERE (`username` = '" + username + "');";
 			} else {
 				query = "UPDATE `CompanyScheduler`.`availability` SET `monday` = '0', `tuesday` = '0', `wednesday` = '0', `thursday` = '0', `friday` = '0' WHERE (`username` = '"
 						+ username + "');";

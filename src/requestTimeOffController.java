@@ -35,12 +35,81 @@ public class requestTimeOffController implements Initializable {
 		
 	}
 
+	public boolean checkValidInput(String input) {
+		if (input.length() != 10) {
+			return false;
+		}else {
+			for (int i = 0; i < input.length(); i++) {
+				char curr = input.charAt(i);
+				switch (i) {
+				case 0: 
+					if (!Character.isDigit(curr)) {
+						return false;
+					}
+					continue;
+				case 1:
+					if (!Character.isDigit(curr)) {
+						return false;
+					}
+					continue;
+				case 2:
+					if (!Character.isDigit(curr)) {
+						return false;
+					}
+					continue;
+				case 3:
+					if (!Character.isDigit(curr)) {
+						return false;
+					}
+					continue;
+				case 4:
+					if (curr != '-') {
+						return false;
+					}
+					continue;
+				case 5:
+					if (!Character.isDigit(curr)) {
+						return false;
+					}
+					continue;
+				case 6:
+					if (!Character.isDigit(curr)) {
+						return false;
+					}
+					continue;
+				case 7:
+					if (curr != '-') {
+						return false;
+					}
+					continue;
+				case 8:
+					if (!Character.isDigit(curr)) {
+						return false;
+					}
+					continue;
+				case 9:
+					if (!Character.isDigit(curr)) {
+						return false;
+					}
+					continue;
+				default: continue;
+				}
+			}
+		}
+		return true;
+	}
+	
+	
 	/*
 	 * Submits the current selected dates for a time off request for the current user.
 	 */
 	public void handleSubmitButton(ActionEvent event) throws IOException {
 		if (startDate.getText().equals("") || endDate.getText().equals("")) {
 			System.out.println("Must submit both a start date and end date for time off.");
+		}
+		else if (!checkValidInput(startDate.getText()) || !checkValidInput(endDate.getText())) {
+			System.out.println("Please properly format input.");
+			return;
 		}
 		else {
 		    try
