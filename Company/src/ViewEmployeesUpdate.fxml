@@ -83,7 +83,7 @@
       </Pane>
       <ListView fx:id="EmployeeL" layoutX="314.0" layoutY="198.0" prefHeight="308.0" prefWidth="550.0" />
       <Pane layoutX="314.0" layoutY="180.0" prefHeight="18.0" prefWidth="550.0" style="-fx-background-color: #2659ff;" />
-      <Button fx:id="Populate" layoutX="314.0" layoutY="506.0" mnemonicParsing="false" onAction="#Populate" prefHeight="25.0" prefWidth="550.0" style="-fx-background-color: #2659ff;" text="Pupulate" textFill="WHITE">
+      <Button fx:id="Populate" layoutX="314.0" layoutY="506.0" mnemonicParsing="false" onAction="#Populate" prefHeight="25.0" prefWidth="550.0" style="-fx-background-color: #2659ff;" text="Populate" textFill="WHITE">
          <font>
             <Font name="Agency FB Bold" size="18.0" />
          </font>
