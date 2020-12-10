@@ -149,5 +149,45 @@ public class Schedule{
 		System.out.println(this.totalHours + " hours available; " + totalHours + " scheduled.");
 	}
 	
+	boolean alreadyScheduled(String username, int workDay) {
+		switch(workDay) {
+		case 1: 
+			for (int i = 0; i < this.monday.size(); i++) {
+				if (this.monday.get(i).employee.username.equals(username)) {
+					return true;
+				}
+			}
+			return false;
+		case 2: 
+			for (int i = 0; i < this.tuesday.size(); i++) {
+				if (this.tuesday.get(i).employee.username.equals(username)) {
+					return true;
+				}
+			}
+			return false;
+		case 3: 
+			for (int i = 0; i < this.wednesday.size(); i++) {
+				if (this.wednesday.get(i).employee.username.equals(username)) {
+					return true;
+				}
+			}
+			return false;
+		case 4: 
+			for (int i = 0; i < this.thursday.size(); i++) {
+				if (this.thursday.get(i).employee.username.equals(username)) {
+					return true;
+				}
+			}
+			return false;
+		case 5: 			
+			for (int i = 0; i < this.friday.size(); i++) {
+				if (this.friday.get(i).employee.username.equals(username)) {
+					return true;
+				}
+			}
+		return false;
+		default: return false;		
+		}
+	}
 	
 }
