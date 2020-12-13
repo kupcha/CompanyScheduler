@@ -44,7 +44,9 @@ import javafx.scene.control.TreeTableColumn;
 	    
 	    EmployeeDatabase db = new EmployeeDatabase();
 
-	    
+	    /*
+	     * Populates the List with employees from the database
+		 */
 	    void pop() throws ClassNotFoundException, SQLException, ParseException {
 	    	
 	    	ArrayList<Employee> holder = new ArrayList<Employee>();
@@ -64,14 +66,18 @@ import javafx.scene.control.TreeTableColumn;
 	    	EmployeeL.setItems(items);
 	    	
 	    }
-	    
+	    /*
+	     * Populates the List with employees from the database
+		 */
 	    @FXML
 		void initialize() throws ClassNotFoundException, SQLException, ParseException {
 	    	
 	    	pop();
 		}
 	    
-
+	    /*
+	     * Populates the List with employees from the database
+		 */
 	    @FXML
 	    void Populate(ActionEvent event) throws ClassNotFoundException, SQLException, ParseException {
 
@@ -79,6 +85,9 @@ import javafx.scene.control.TreeTableColumn;
 	    	
 	    	
 	    }
+	    /*
+	     * Loads the Add Employee GUI
+		 */
 	    @FXML
 		void AddEmployee(ActionEvent event) {
 
@@ -104,7 +113,9 @@ import javafx.scene.control.TreeTableColumn;
 		}
 		
 		
-		
+		 /*
+	     * Loads the Check Requests GUI
+		 */
 		@FXML
 		void CheckRequest(ActionEvent event) {
 			
@@ -125,7 +136,9 @@ import javafx.scene.control.TreeTableColumn;
 			}
 		}
 		
-		
+		 /*
+	     * Loads the Create Schedule GUI
+		 */
 		public void goToCreateSchedule(ActionEvent event) throws IOException {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateScheduleUpdate.fxml"));
 			Parent root = loader.load();
@@ -137,7 +150,9 @@ import javafx.scene.control.TreeTableColumn;
 			employeeHomeStage.show();
 	}
 		
-
+		 /*
+	     * Loads the Log In GUI
+		 */
 		@FXML
 		void Logout(ActionEvent event) {
 			JOptionPane.showMessageDialog(null, "You are now logging out.");
@@ -157,7 +172,9 @@ import javafx.scene.control.TreeTableColumn;
 			return;
 
 		}
-
+		 /*
+	     * Loads the Remove Employee GUI
+		 */
 		@FXML
 		void RemoveEmployee(ActionEvent event) {
 			try {
