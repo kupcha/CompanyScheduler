@@ -13,9 +13,8 @@ public class EmployerJUnitTest {
 		testEmployer.setAvailability(0, 1, 2, 0, 1);
 		String test = "USER: Kyle Van. USERNAME: kvanw. Mon Availability: 0 Tues Availability: 1 Wed Availability: 2 Thur Availability: 0 Fri Availability: 1";
 		test = test.concat(" Manager role.");
-		
+		//test the employer to string with the test employer
 		assertEquals(test, testEmployer.toString());
-		//fail("Not yet implemented");
 	}
 
 	
@@ -23,9 +22,8 @@ public class EmployerJUnitTest {
 	@Test
 	public void testChangeType() {
 		
-		
+		//test changing an employers type
 		assertEquals(true, testEmployer.changeType(3));
-		//fail("Not yet implemented");
 	}
 
 }
