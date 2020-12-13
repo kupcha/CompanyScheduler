@@ -59,7 +59,9 @@ public class CheckRequestsController {
 	}
    
     */
-    
+    	/*
+	* Sets the ListView Items
+	*/
      void pop() throws ClassNotFoundException, SQLException, ParseException {
     	
     	ArrayList<String> holder = new ArrayList<String>();
@@ -69,13 +71,17 @@ public class CheckRequestsController {
     	List.setItems(items);
     	
     }
-    
+	/*
+	* What to do when the scene loads up
+	*/
     @FXML
 	void initialize() throws ClassNotFoundException, SQLException, ParseException {
     	
     	pop();
 	}
-    
+   	 /*
+	* When a request gets confirmed it sends it into the database and delets it from the list
+	*/
     @FXML
     void Confirm(ActionEvent event) throws ClassNotFoundException, SQLException, ParseException {
     	
@@ -87,7 +93,9 @@ public class CheckRequestsController {
     	List.getItems().remove(selectedId);
     	}
     }
-
+	/*
+	* When a request gets denied it deletes it from the list
+	*/
     @FXML
     void Deny(ActionEvent event) throws ClassNotFoundException, SQLException, ParseException {
     	
@@ -106,7 +114,9 @@ public class CheckRequestsController {
    
 
     
-  
+  	/*
+	* Load AddEmployeeUpdate.fxml
+	*/
     @FXML
 	void AddEmployee(ActionEvent event) {
 
@@ -125,7 +135,9 @@ public class CheckRequestsController {
 		}
 
 	}
-
+	/*
+	* Load ViewEmployeesUpdate.fxml
+	*/
 	@FXML
 	void ChangeEmployee(ActionEvent event) {
 		try {
@@ -153,7 +165,9 @@ public class CheckRequestsController {
 		
 	}
 	
-	
+	/*
+	* Load CreateScheduleUpdate.fxml
+	*/
 	public void goToCreateSchedule(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateScheduleUpdate.fxml"));
 		Parent root = loader.load();
@@ -165,7 +179,9 @@ public class CheckRequestsController {
 		employeeHomeStage.show();
 }
 	
-
+	/*
+	* Load LogInUpdate.fxml
+	*/
 	@FXML
 	void Logout(ActionEvent event) {
 		JOptionPane.showMessageDialog(null, "You are now logging out.");
@@ -185,7 +201,9 @@ public class CheckRequestsController {
 		return;
 
 	}
-
+	/*
+	* Load RemoveEmployeeUpdate.fxml
+	*/
 	@FXML
 	void RemoveEmployee(ActionEvent event) {
 		try {
