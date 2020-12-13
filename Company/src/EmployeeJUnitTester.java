@@ -22,7 +22,7 @@ public class EmployeeJUnitTester {
 	@Test
 	public void testGetEmployee() {
 		
-		String test = "Kyle Van Rutgers Ave";
+		String test = "kvanw Kyle Van Rutgers Ave";
 		
 		assertEquals(test, testEmployee.getEmployee());
 		//fail("Not yet implemented");

@@ -28,7 +28,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
-public class requestTimeOffController implements Initializable {
+public class requestTimeOffController {
 	public TextField startDate;
 	public TextField endDate;
 	
@@ -58,11 +58,9 @@ public class requestTimeOffController implements Initializable {
     @FXML
     private Button submitButton;
 	
-	
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		
-	}
+	/*
+	 * Set personalized text values based on the user currently logged in
+	 */
 	public void setTextValues2() {
 		welcomeLabel.setText(username);
 		if (type == 0) {
@@ -72,6 +70,10 @@ public class requestTimeOffController implements Initializable {
 		}
 	}
 
+	/*
+	 * Checks that proper input is being passed for a request.
+	 * @return false if input is not formatted YYYY-MM-DD, true otherwise
+	 */
 	public boolean checkValidInput(String input) {
 		if (input.length() != 10) {
 			return false;
@@ -175,6 +177,9 @@ public class requestTimeOffController implements Initializable {
 		return;
 	}
 	
+	/*
+	 * Takes a user to view their current schedule
+	 */
 	public void handleCheckSchedule(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("CurrentScheduleUpdate.fxml"));
 	    Parent root = loader.load();
@@ -189,15 +194,8 @@ public class requestTimeOffController implements Initializable {
 	    currentScheduleStage.setTitle("Viewing Current Schedule");
 	    currentScheduleStage.show();
 		return;
-		}
-		
-		/*
-		 * Will take the user to the page where they may submit a request for time off.
-		 */
-		public void handleRequestTimeOff(ActionEvent event) throws IOException {
-	    	
-		}
-		
+	}
+
 		/*
 		 * Will log the user out of the program and close.
 		 */

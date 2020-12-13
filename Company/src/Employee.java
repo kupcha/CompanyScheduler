@@ -1,5 +1,8 @@
 import java.util.Comparator;
-
+/*
+ * @author Patrick Kupcha
+ * Describes the Employee class, and extension of User
+ */
 public class Employee extends User {
 	int type; // 0 full-time OR 1 part-time
 
@@ -9,20 +12,31 @@ public class Employee extends User {
 		this.type = type;
 		access = 1;
 	}
-public String getEmployee() {
 	
+	/*
+	 * Prints information regarding employee
+	 */
+	public String getEmployee() {
+		return username + " " + firstName + " " + lastName +  " " + address;
+	}
 	
-	
-	return username + " " + firstName + " " + lastName +  " " + address;
-}
+	/*
+	 * Used to change the type of an employee from full-time to part-time
+	 * @return true when successful, false if inputting the same type
+	 */
 	boolean changeType(int type) {
-		if (this.type == type)
+		if (this.type == type || type > 1 || type < 0) {
 			return false;
+		}
 		else
 			this.type = type;
 		return true;
 	}
 
+	/*
+	 *	Returns String information on Employee -- used throughout testing
+	 * 
+	 */
 	@Override
 	public String toString() {
 		String stringDescription = super.toString();
@@ -33,6 +47,10 @@ public String getEmployee() {
 		return stringDescription;
 	}
 	
+	/*
+	 * Used in order to sort and compare employee types. This is called during createSchedule()
+	 * so full time employees will be scheduled before part-timers
+	 */
     public static Comparator<Employee> employeeType = new Comparator<Employee>() {
 
 	public int compare(Employee e1, Employee e2) {

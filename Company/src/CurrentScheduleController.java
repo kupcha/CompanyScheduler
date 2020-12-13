@@ -24,7 +24,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class CurrentScheduleController implements Initializable{
+public class CurrentScheduleController{
 	public String username; // this will eventually get passed to controller
 	public int type;
 	public Text employeeGreeting;
@@ -53,10 +53,9 @@ public class CurrentScheduleController implements Initializable{
     @FXML
     private Button Logout;
 	
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-	}
-	
+    /*
+     * Sets personal message based on employee currently logged in
+     */
 	public void setTextValues2() {
 		welcomeLabel.setText(username);
 		if (type == 0) {
@@ -66,6 +65,9 @@ public class CurrentScheduleController implements Initializable{
 		}
 	}
 	
+	/*
+	 * Initializes text based on current schedule 
+	 */
 	public void setTextValues() {
 		//employeeGreeting.setText(username + ", your schedule for the week is as follows:");
 		EmployeeDatabase db = new EmployeeDatabase();

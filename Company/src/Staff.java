@@ -12,13 +12,6 @@ public class Staff {
 	public Staff() {
 		currentStaff = new ArrayList<User>();
 	}
-
-	/**
-	 * This function adds a new User to the staff list
-	 * 
-	 * @param User newStaff
-	 * @return true if newStaff was added, false if they were already in list.
-	 */
 	
 	void setAvail() {
 		EmployeeDatabase db = new EmployeeDatabase();
@@ -29,6 +22,13 @@ public class Staff {
 			System.err.println(e.getMessage());
 		}
 	}
+	
+	/**
+	 * This function adds a new User to the staff list
+	 * 
+	 * @param User newStaff
+	 * @return true if newStaff was added, false if they were already in list.
+	 */
 	boolean addStaffMember(User newStaff) {
 		return currentStaff.add(newStaff);
 	}

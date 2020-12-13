@@ -359,7 +359,7 @@ public class EmployeeDatabase {
 	public int setPrev(String username, int days) throws SQLException, ClassNotFoundException
 	{
 		
-ArrayList<String> weekDays = new ArrayList<String>();
+		ArrayList<String> weekDays = new ArrayList<String>();
 		
 		weekDays.add("monday");
 		weekDays.add("tuesday");
@@ -370,7 +370,7 @@ ArrayList<String> weekDays = new ArrayList<String>();
 		String day = "";
 		
 		
-			day = weekDays.get(days);
+		day = weekDays.get(days);
 		
 			
 		

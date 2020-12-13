@@ -45,7 +45,7 @@ public class AvailabilityController implements Initializable {
 	public RadioButton friday9to5;
 	public RadioButton friday1to9;
 	public RadioButton friday9to9;
-	public String username; // in the future this will be set when scene is launched
+	public String username; // set when scene is launched == used for personalization
 	public int type;
 	public int employeeType = 0;
 	public int openAvail; // 0 not open, 1 open availability
@@ -81,6 +81,9 @@ public class AvailabilityController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 	}
 	
+	/*
+	 * This function is called on launching of scene to personally describe the user logging in
+	 */
 	public void setTextValues2() {
 		welcomeLabel.setText(username);
 		if (type == 0) {
@@ -90,6 +93,9 @@ public class AvailabilityController implements Initializable {
 		}
 	}
 	
+	/*
+	 * This function is called on launching of scene to personally describe the user logging in
+	 */
 	public void setTextValues() {
 		if (employeeType == 0) {
 			employeeGreeting.setText(username + ", you are a full-time employee and will be allocated 40 hours per week.");
@@ -99,6 +105,9 @@ public class AvailabilityController implements Initializable {
 		}
 	}
 
+	/*
+	 * Handles a user selecting open availability
+	 */
 	public void handleOpenAvailability() {
 		ToggleGroup availabilityToggle = new ToggleGroup();
 		openAvailability.setToggleGroup(availabilityToggle);
@@ -131,6 +140,9 @@ public class AvailabilityController implements Initializable {
 		openAvail = 0;
 	}
 
+	/*
+	 * Handles a user selecting availability option
+	 */
 	public void handleMon9to5() {
 		ToggleGroup toggle = new ToggleGroup();
 		monday9to5.setToggleGroup(toggle);
@@ -141,6 +153,9 @@ public class AvailabilityController implements Initializable {
 		openAvail = 0;
 	}
 
+	/*
+	 * Handles a user selecting availability option
+	 */
 	public void handleMon9to9() {
 		ToggleGroup toggle = new ToggleGroup();
 		monday9to5.setToggleGroup(toggle);
@@ -151,6 +166,9 @@ public class AvailabilityController implements Initializable {
 		openAvail = 0;
 	}
 
+	/*
+	 * Handles a user selecting availability option
+	 */
 	public void handleTues1to9() {
 		ToggleGroup tuesToggle = new ToggleGroup();
 		tuesday9to5.setToggleGroup(tuesToggle);
@@ -161,6 +179,9 @@ public class AvailabilityController implements Initializable {
 		openAvail = 0;
 	}
 
+	/*
+	 * Handles a user selecting availability option
+	 */
 	public void handleTues9to5() {
 		ToggleGroup tuesToggle = new ToggleGroup();
 		tuesday9to5.setToggleGroup(tuesToggle);
@@ -171,6 +192,9 @@ public class AvailabilityController implements Initializable {
 		openAvail = 0;
 	}
 
+	/*
+	 * Handles a user selecting availability option
+	 */
 	public void handleTues9to9() {
 		ToggleGroup tuesToggle = new ToggleGroup();
 		tuesday9to5.setToggleGroup(tuesToggle);
@@ -181,6 +205,9 @@ public class AvailabilityController implements Initializable {
 		openAvail = 0;
 	}
 
+	/*
+	 * Handles a user selecting availability option
+	 */
 	public void handleWed1to9() {
 		ToggleGroup wedToggle = new ToggleGroup();
 		wednesday9to5.setToggleGroup(wedToggle);
@@ -191,6 +218,9 @@ public class AvailabilityController implements Initializable {
 		openAvail = 0;
 	}
 
+	/*
+	 * Handles a user selecting availability option
+	 */
 	public void handleWed9to5() {
 		ToggleGroup wedToggle = new ToggleGroup();
 		wednesday9to5.setToggleGroup(wedToggle);
@@ -201,6 +231,9 @@ public class AvailabilityController implements Initializable {
 		openAvail = 0;
 	}
 
+	/*
+	 * Handles a user selecting availability option
+	 */
 	public void handleWed9to9() {
 		ToggleGroup wedToggle = new ToggleGroup();
 		wednesday9to5.setToggleGroup(wedToggle);
@@ -211,6 +244,9 @@ public class AvailabilityController implements Initializable {
 		openAvail = 0;
 	}
 
+	/*
+	 * Handles a user selecting availability option
+	 */
 	public void handleThurs1to9() {
 		ToggleGroup thursToggle = new ToggleGroup();
 		thursday9to5.setToggleGroup(thursToggle);
@@ -221,6 +257,9 @@ public class AvailabilityController implements Initializable {
 		openAvail = 0;
 	}
 
+	/*
+	 * Handles a user selecting availability option
+	 */
 	public void handleThurs9to5() {
 		ToggleGroup thursToggle = new ToggleGroup();
 		thursday9to5.setToggleGroup(thursToggle);
@@ -231,6 +270,9 @@ public class AvailabilityController implements Initializable {
 		openAvail = 0;
 	}
 
+	/*
+	 * Handles a user selecting availability option
+	 */
 	public void handleThurs9to9() {
 		ToggleGroup thursToggle = new ToggleGroup();
 		thursday9to5.setToggleGroup(thursToggle);
@@ -241,6 +283,9 @@ public class AvailabilityController implements Initializable {
 		openAvail = 0;
 	}
 
+	/*
+	 * Handles a user selecting availability option
+	 */
 	public void handleFri1to9() {
 		ToggleGroup friToggle = new ToggleGroup();
 		friday9to5.setToggleGroup(friToggle);
@@ -251,6 +296,9 @@ public class AvailabilityController implements Initializable {
 		openAvail = 0;
 	}
 
+	/*
+	 * Handles a user selecting availability option
+	 */
 	public void handleFri9to5() {
 		ToggleGroup friToggle = new ToggleGroup();
 		friday9to5.setToggleGroup(friToggle);
@@ -261,6 +309,9 @@ public class AvailabilityController implements Initializable {
 		openAvail = 0;
 	}
 
+	/*
+	 * Handles a user selecting availability option
+	 */
 	public void handleFri9to9() {
 		ToggleGroup friToggle = new ToggleGroup();
 		friday9to5.setToggleGroup(friToggle);
@@ -271,6 +322,10 @@ public class AvailabilityController implements Initializable {
 		openAvail = 0;
 	}
 
+	/*
+	 * Handles a user submitting their availability choices -- database is updated with selected
+	 * values.
+	 */
 	public void handleSubmitButton() {
 		try {
 			// create our mysql database connection
@@ -330,6 +385,9 @@ public class AvailabilityController implements Initializable {
 		}
 	}
 
+	/*
+	 * Takes a user to their own "View Schedule" scene
+	 */
 public void handleCheckSchedule(ActionEvent event) throws IOException {
 	FXMLLoader loader = new FXMLLoader(getClass().getResource("CurrentScheduleUpdate.fxml"));
     Parent root = loader.load();

@@ -44,7 +44,14 @@ public class LogInController {
 	String password;
 
 	
-
+	/**
+	 * Handles login function - will take user to either the Employer or Employee home screens
+	 * based on username/password combo
+	 * @param event
+	 * @throws IOException
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
 	@FXML
 	void LoginAction(ActionEvent event) throws IOException, SQLException, ClassNotFoundException {
 

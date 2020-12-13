@@ -1,3 +1,6 @@
+/**
+ * @author Patrick Kupcha
+ */
 public class User {
 	String firstName;
 	String lastName;
@@ -28,6 +31,11 @@ public class User {
 		access = -1;
 	}
 
+	/**
+	 * Change a user's password
+	 * @param newPassword
+	 * @return false if passing same password, true otherwise
+	 */
 	boolean changePassword(String newPassword) {
 		if (password.equals(newPassword)) {
 			System.out.println("Password must be different.");
@@ -37,6 +45,11 @@ public class User {
 		return true;
 	}
 
+	/**
+	 * Change a user's email address
+	 * @param newEmail
+	 * @return false if passing same email, true otherwise
+	 */
 	boolean changeEmail(String newEmail) {
 		if (email.equals(newEmail)) {
 			return false;
@@ -46,6 +59,11 @@ public class User {
 		}
 	}
 
+	/**
+	 * Change a user's address
+	 * @param newAddress
+	 * @return false if passing same address, true otherwise
+	 */
 	boolean changeAddress(String newAddress) {
 		if (address.equals(newAddress)) {
 			return false;
@@ -55,6 +73,11 @@ public class User {
 		}
 	}
 
+	/**
+	 * Change a user's phone number
+	 * @param newPhone
+	 * @return false if passing same phone number, true otherwise
+	 */
 	boolean changePhone(String newPhone) {
 		if (newPhone.equals(phone)) {
 			return false;
@@ -64,12 +87,30 @@ public class User {
 		}
 	}
 
+	/**
+	 * Get a user's access type -- admin or employee
+	 * @return
+	 */
 	int getAccess() {
 		return access;
 	}
+	
+	/**
+	 * Get String of user's username
+	 * @return
+	 */
 	String getUsername() {		
 		return username;
 	}
+	
+	/**
+	 * Set a user's weekly availability
+	 * @param monday
+	 * @param tuesday
+	 * @param wednesday
+	 * @param thursday
+	 * @param friday
+	 */
 	void setAvailability(int monday, int tuesday, int wednesday, int thursday, int friday) {
 		mondayAvailability = monday;
 		tuesdayAvailability = tuesday;
@@ -78,6 +119,9 @@ public class User {
 		fridayAvailability = friday;
 	}
 
+	/**
+	 * @return String describing a User
+	 */
 	@Override
 	public String toString() {
 		String userDescription = "";
