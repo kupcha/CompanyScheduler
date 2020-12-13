@@ -141,7 +141,10 @@ public class AddEmployeeController {
 		
 		
 	}
-
+	
+	/*
+	 * Check all fields for text text 
+	 */
 	public boolean checkText() {
 		
 		if(first_name.equals("") || last_name.equals("") ||username.equals("") || password.equals("") ||
@@ -209,7 +212,9 @@ public class AddEmployeeController {
 		
 	}
 	
-	
+	/*
+	 * Changes scene to the viewemployeesUpdate.fxml 
+	 */
 	@FXML
 	void ChangeEmployee(ActionEvent event) {
 		try {
@@ -227,6 +232,10 @@ public class AddEmployeeController {
 		}
 	}
 	public Scene loginScene;
+	
+	/*
+	 * Changes scene to the checkrequestsUpdate.fxml 
+	 */
 	@FXML
 	void CheckRequest(ActionEvent event) {
 		
@@ -247,7 +256,9 @@ public class AddEmployeeController {
 		}
 	}
 	
-	
+	/*
+	 * Changes scene to the CreateScheduleUpdate.fxml 
+	 */
 	public void goToCreateSchedule(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateScheduleUpdate.fxml"));
 		Parent root = loader.load();
@@ -259,7 +270,9 @@ public class AddEmployeeController {
 		employeeHomeStage.show();
 }
 	
-
+	/*
+	 * Changes scene to the LogInUpdate.fxml 
+	 */
 	@FXML
 	void Logout(ActionEvent event) {
 		JOptionPane.showMessageDialog(null, "You are now logging out.");
@@ -279,7 +292,9 @@ public class AddEmployeeController {
 		return;
 
 	}
-
+	/*
+	 * Changes scene to the RemoveEmployeeUpdate.fxml 
+	 */
 	@FXML
 	void RemoveEmployee(ActionEvent event) {
 		try {
