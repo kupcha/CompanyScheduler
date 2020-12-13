@@ -69,7 +69,9 @@ public class EmployerHomeController {
 		}
 
 	}
-
+	/*
+	 * goes to the View Employee GUI
+	 */
 	@FXML
 	void ChangeEmployee(ActionEvent event) {
 		try {
@@ -86,7 +88,9 @@ public class EmployerHomeController {
 			e.printStackTrace();
 		}
 	}
-	public Scene loginScene;
+	/*
+	 * goes to the Check Requests GUI
+	 */
 	@FXML
 	void CheckRequest(ActionEvent event) {
 		
@@ -107,7 +111,9 @@ public class EmployerHomeController {
 		}
 	}
 	
-	
+	/*
+	 * goes to the Create Schedule GUI
+	 */
 	public void goToCreateSchedule(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateScheduleUpdate.fxml"));
 		Parent root = loader.load();
@@ -119,7 +125,9 @@ public class EmployerHomeController {
 		employeeHomeStage.show();
 }
 	
-
+	/*
+	 * goes to the LogIn GUI
+	 */
 	@FXML
 	void Logout(ActionEvent event) {
 		JOptionPane.showMessageDialog(null, "You are now logging out.");
@@ -139,7 +147,9 @@ public class EmployerHomeController {
 		return;
 
 	}
-
+	/*
+	 * goes to the Remove Employee GUI
+	 */
 	@FXML
 	void RemoveEmployee(ActionEvent event) {
 		try {
