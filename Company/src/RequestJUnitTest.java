@@ -30,7 +30,7 @@ public class RequestJUnitTest{
 	
 	Request requestTest1 = new Request("Kyle",week, start, end ,-1);
 		requestTest1.setDiff(1);
-		
+		//testing if the getDay returns the correct day of the week
 		assertEquals(1, requestTest1.getDay());
 		//fail("Not yet implemented");
 	}
@@ -43,6 +43,7 @@ public class RequestJUnitTest{
 		
 		
 		Request requestTest1 = new Request("Kyle",week, start, end ,-1);
+		//Testing the PrevAvail that was set in the request
 		assertEquals(-1, requestTest1.getPrev());
 		//fail("Not yet implemented");
 	}
@@ -55,6 +56,7 @@ public class RequestJUnitTest{
 		
 		
 		Request requestTest1 = new Request("Kyle",week, start, end ,-1);
+		//Test if the weekOf gets send back correctly 
 		assertEquals(week, requestTest1.getWeekOf());
 		
 		
