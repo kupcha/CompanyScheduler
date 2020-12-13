@@ -65,6 +65,11 @@ public class EmployerViewScheduleController implements Initializable{
 	@FXML
 	private Button Logout;
 	
+	
+	/*
+	 * 
+	 * Goes to the Add Employee GUI
+	 */
 	@FXML
 	void AddEmployee(ActionEvent event) {
 
@@ -83,7 +88,10 @@ public class EmployerViewScheduleController implements Initializable{
 		}
 
 	}
-
+	/*
+	 * 
+	 * Goes to the View Employee GUI
+	 */
 	@FXML
 	void ChangeEmployee(ActionEvent event) {
 		try {
@@ -100,7 +108,10 @@ public class EmployerViewScheduleController implements Initializable{
 			e.printStackTrace();
 		}
 	}
-	
+	/*
+	 * 
+	 * Goes to the Check Requests GUI
+	 */
 	@FXML
 	void CheckRequest(ActionEvent event) {
 		
@@ -126,7 +137,10 @@ public class EmployerViewScheduleController implements Initializable{
 		
 }
 	
-
+	/*
+	 * 
+	 * Goes to the Log-In GUI
+	 */
 	@FXML
 	void Logout(ActionEvent event) {
 		JOptionPane.showMessageDialog(null, "You are now logging out.");
@@ -146,7 +160,10 @@ public class EmployerViewScheduleController implements Initializable{
 		return;
 
 	}
-
+	/*
+	 * 
+	 * Goes to the Remove Employee GUI
+	 */
 	@FXML
 	void RemoveEmployee(ActionEvent event) {
 		try {
@@ -164,6 +181,10 @@ public class EmployerViewScheduleController implements Initializable{
 		}
 	}
 	
+	/*
+	 * 
+	 * Populates the schedule on the GUI side from what is in the database
+	 */
 	void showSchedule() throws ClassNotFoundException, SQLException {
 		EmployeeDatabase db = new EmployeeDatabase();
 		db.connect();		
@@ -267,7 +288,10 @@ public class EmployerViewScheduleController implements Initializable{
 		}
 
 	}
-	
+	/*
+	 * 
+	 * Show the schedule upon initialization
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
