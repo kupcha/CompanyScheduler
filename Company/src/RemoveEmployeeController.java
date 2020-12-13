@@ -41,22 +41,11 @@ public class RemoveEmployeeController {
     ObservableList<String> items; 
    
     EmployeeDatabase db = new EmployeeDatabase();
-   /* 
-    public void Populate(ActionEvent event) throws ClassNotFoundException, SQLException {
-    	
-    	
-    	
-    	
-    	ArrayList<String> holder = new ArrayList<String>();
-    	holder = db.getRequests();
-    	//items = .getList();
-    	items = FXCollections.observableArrayList(holder);
-    	List.setItems(items);
-    
-	}
    
-    */
-    
+    /*
+	 * 
+	 * Populate the ListView with data from DB
+	 */
      void pop() throws ClassNotFoundException, SQLException, ParseException {
     	
     	 ArrayList<Employee> holder = new ArrayList<Employee>();
@@ -82,7 +71,10 @@ public class RemoveEmployeeController {
     	
     	pop();
 	}
-    
+    /*
+	 * 
+	 * Upon confirmation send the username to the DB and delete them from all tables
+	 */
     @FXML
     void Confirm(ActionEvent event) throws ClassNotFoundException, SQLException, ParseException {
     	
@@ -99,7 +91,10 @@ public class RemoveEmployeeController {
 
    
     
-  
+    /*
+	 * 
+	 * Load the AddEmployee GUI
+	 */
     @FXML
 	void AddEmployee(ActionEvent event) {
 
@@ -118,7 +113,10 @@ public class RemoveEmployeeController {
 		}
 
 	}
-
+    /*
+	 * 
+	 * Load the View Employee GUI
+	 */
 	@FXML
 	void ChangeEmployee(ActionEvent event) {
 		try {
@@ -137,7 +135,10 @@ public class RemoveEmployeeController {
 	}
 	
 	
-	
+	/*
+	 * 
+	 * Load the Check Requests GUI
+	 */
 	@FXML
 	void CheckRequest(ActionEvent event) {
 		
@@ -158,7 +159,10 @@ public class RemoveEmployeeController {
 		
 	}
 	
-	
+	/*
+	 * 
+	 * Load the Create Schedule GUI
+	 */
 	public void goToCreateSchedule(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateScheduleUpdate.fxml"));
 		Parent root = loader.load();
@@ -170,7 +174,10 @@ public class RemoveEmployeeController {
 		employeeHomeStage.show();
 }
 	
-
+	/*
+	 * 
+	 * Load the Log In GUI
+	 */
 	@FXML
 	void Logout(ActionEvent event) {
 		JOptionPane.showMessageDialog(null, "You are now logging out.");
