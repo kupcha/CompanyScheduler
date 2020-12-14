@@ -214,6 +214,7 @@ public class CreateScheduleController{
 	 * This will go through current staff and schedule each employee for the week, then take the
 	 * user to view the new schedule.
 	 */
+			
 	public Schedule createScheduleHelper(Staff staff, int budgetHours) {
 		ArrayList<Employee> currentStaff = new ArrayList<Employee>();
 		for (int i = 0; i < staff.currentStaff.size(); i++) {
@@ -256,6 +257,7 @@ public class CreateScheduleController{
 			}
 		}
 		int partTimeIndex = i;
+		//System.out.println("TEST:" + currentStaff.get(i).toString());
 		//sort shifts so open availabilities will appear first
 		Collections.sort(sched.monday, Shift.shiftHours);
 		Collections.sort(sched.tuesday, Shift.shiftHours);
@@ -265,7 +267,7 @@ public class CreateScheduleController{
 		// now go back and schedule open availability according to needs
 		//update open availability to whatever shift is most needed
 		// do this for each day of the week
-		System.out.println("Slotted all full timers shifts.");
+		//System.out.println("Slotted all full timers shifts.");
 		for (i = 0; i < sched.monday.size(); i++) {
 			//if we reach shifts already scheduled day/night we can move on
 			if (sched.monday.get(i).hours != 0) {
@@ -333,119 +335,170 @@ public class CreateScheduleController{
 				}
 			}
 		}
+		//System.out.println(budgetHours);
+		//System.out.println(partTimeIndex);
 		//sched.printSchedule();
 		//at this point -- full time employees have a shift each day of the week
 		//start of partTimeIndex
 		int curr = partTimeIndex;
 		int day = 0;
-		while (budgetHours > 0 && curr < currentStaff.size()) {
+		int amShifts;
+		int pmShifts;
+		int exhaustedOptions = currentStaff.size() - curr;
+		int count = 0;
+		while (budgetHours > 7 && curr < currentStaff.size() && day < 5) {
+			if (count == exhaustedOptions) {
+				day++;
+				continue;
+			}
 			int schedFactor = day % 5;
-			System.out.println(schedFactor);
+			//System.out.println(schedFactor);
 			switch (schedFactor) {
 			case 0:
-				if (currentStaff.get(curr).mondayAvailability == 0) {
-					Shift temp = new Shift(currentStaff.get(curr), 1, 1);
-					sched.addShift(temp);
-					budgetHours -= 8;
-					curr++;
-				}else if (currentStaff.get(curr).mondayAvailability == 1 || currentStaff.get(curr).mondayAvailability == 2) {
-					Shift temp = new Shift(currentStaff.get(curr), currentStaff.get(curr).mondayAvailability, 1);
-					sched.addShift(temp);
-					budgetHours -= 8;
-					curr++;
+				amShifts = sched.howManyScheduled(1, 1);
+				pmShifts = sched.howManyScheduled(1, 2);
+				if (amShifts >= pmShifts) {
+					if (currentStaff.get(curr).mondayAvailability == 1 && !sched.alreadyScheduled(currentStaff.get(curr).username, 1) ) {
+						Shift temp = new Shift(currentStaff.get(curr), 1, 1);
+						sched.addShift(temp);
+						budgetHours -= 8;
+						day++;
+						count = 0;
+					}
+					else {
+						count++;
+					}
 				}else {
-					curr++;
+					if (currentStaff.get(curr).mondayAvailability == 2 && !sched.alreadyScheduled(currentStaff.get(curr).username, 1) ) {
+						Shift temp = new Shift(currentStaff.get(curr), 1, 2);
+						sched.addShift(temp);
+						budgetHours -= 8;
+						day++;
+						count = 0;
+					}
+					else {
+						count++;
+					}
 				}
-				if (curr >= currentStaff.size()) {
-					curr = partTimeIndex;
-				}
-				day++;
-				continue;
+				break;
 			case 1:
-				if (currentStaff.get(curr).tuesdayAvailability == 0) {
-					Shift temp = new Shift(currentStaff.get(curr), 1, 2);
-					sched.addShift(temp);
-					budgetHours -= 8;
-					curr++;
-				}else if (currentStaff.get(curr).tuesdayAvailability == 1 || currentStaff.get(curr).tuesdayAvailability == 2) {
-					Shift temp = new Shift(currentStaff.get(curr), currentStaff.get(curr).tuesdayAvailability, 2);
-					sched.addShift(temp);
-					budgetHours -= 8;
-					curr++;
+				amShifts = sched.howManyScheduled(2, 1);
+				pmShifts = sched.howManyScheduled(2, 2);
+				if (amShifts >= pmShifts) {
+					if (currentStaff.get(curr).tuesdayAvailability == 1 && !sched.alreadyScheduled(currentStaff.get(curr).username, 2) ) {
+						Shift temp = new Shift(currentStaff.get(curr), 2, 1);
+						sched.addShift(temp);
+						budgetHours -= 8;
+						day++;
+						count = 0;
+					}
+					else {
+						count++;
+					}
 				}else {
-					curr++;
+					if (currentStaff.get(curr).tuesdayAvailability == 2 && !sched.alreadyScheduled(currentStaff.get(curr).username, 2) ) {
+						Shift temp = new Shift(currentStaff.get(curr), 2, 2);
+						sched.addShift(temp);
+						budgetHours -= 8;
+						day++;
+						count = 0;
+					}
+					count++;
 				}
-				if (curr >= currentStaff.size()) {
-					curr = partTimeIndex;
-				}
-				day++;
-				continue;
+				break;
 			case 2:
-				if (currentStaff.get(curr).wednesdayAvailability == 0) {
-					Shift temp = new Shift(currentStaff.get(curr), 1, 3);
-					sched.addShift(temp);
-					budgetHours -= 8;
-					curr++;
-				}else if (currentStaff.get(curr).wednesdayAvailability == 1 || currentStaff.get(curr).wednesdayAvailability == 2) {
-					Shift temp = new Shift(currentStaff.get(curr), currentStaff.get(curr).wednesdayAvailability, 3);
-					sched.addShift(temp);
-					budgetHours -= 8;
-					curr++;
+				amShifts = sched.howManyScheduled(3, 1);
+				pmShifts = sched.howManyScheduled(3, 2);
+				if (amShifts >= pmShifts) {
+					if (currentStaff.get(curr).wednesdayAvailability == 1 && !sched.alreadyScheduled(currentStaff.get(curr).username, 3) ) {
+						Shift temp = new Shift(currentStaff.get(curr), 3, 1);
+						sched.addShift(temp);
+						budgetHours -= 8;
+						day++;
+						count = 0;
+					}
+					else {
+						count++;
+					}
 				}else {
-					curr++;
+					if (currentStaff.get(curr).wednesdayAvailability == 2 && !sched.alreadyScheduled(currentStaff.get(curr).username, 3) ) {
+						Shift temp = new Shift(currentStaff.get(curr), 3, 2);
+						sched.addShift(temp);
+						budgetHours -= 8;
+						day++;
+						count = 0;
+					}
+					else {
+						count++;
+					}
 				}
-				if (curr >= currentStaff.size()) {
-					curr = partTimeIndex;
-				}
-				day++;
-				continue;
+				break;
 			case 3:
-				if (currentStaff.get(curr).thursdayAvailability == 0) {
-					Shift temp = new Shift(currentStaff.get(curr), 1, 4);
-					sched.addShift(temp);
-					budgetHours -= 8;
-					curr++;
-				}else if (currentStaff.get(curr).thursdayAvailability == 1 || currentStaff.get(curr).thursdayAvailability == 2) {
-					Shift temp = new Shift(currentStaff.get(curr), currentStaff.get(curr).thursdayAvailability, 4);
-					sched.addShift(temp);
-					budgetHours -= 8;
-					curr++;
+				amShifts = sched.howManyScheduled(4, 1);
+				pmShifts = sched.howManyScheduled(4, 2);
+				if (amShifts >= pmShifts) {
+					if (currentStaff.get(curr).thursdayAvailability == 1 && !sched.alreadyScheduled(currentStaff.get(curr).username, 4) ) {
+						Shift temp = new Shift(currentStaff.get(curr), 4, 1);
+						sched.addShift(temp);
+						budgetHours -= 8;
+						day++;
+						count = 0;
+					}
+					else {
+						count++;
+					}
 				}else {
-					curr++;
+					if (currentStaff.get(curr).thursdayAvailability == 2 && !sched.alreadyScheduled(currentStaff.get(curr).username, 4) ) {
+						Shift temp = new Shift(currentStaff.get(curr), 4, 2);
+						sched.addShift(temp);
+						budgetHours -= 8;
+						day++;
+						count = 0;
+					}
+					else {
+						count++;
+					}
 				}
-				if (curr >= currentStaff.size()) {
-					curr = partTimeIndex;
-				}
-				day++;
-				continue;
+				break;
 			case 4:
-				if (currentStaff.get(curr).fridayAvailability == 0) {
-					Shift temp = new Shift(currentStaff.get(curr), 1, 5);
-					sched.addShift(temp);
-					budgetHours -= 8;
-					curr++;
-				}else if (currentStaff.get(curr).thursdayAvailability == 1 || currentStaff.get(curr).fridayAvailability == 2) {
-					Shift temp = new Shift(currentStaff.get(curr), currentStaff.get(curr).fridayAvailability, 5);
-					sched.addShift(temp);
-					budgetHours -= 8;
-					curr++;
+				amShifts = sched.howManyScheduled(5, 1);
+				pmShifts = sched.howManyScheduled(5, 2);
+				if (amShifts >= pmShifts) {
+					if (currentStaff.get(curr).tuesdayAvailability == 1 && !sched.alreadyScheduled(currentStaff.get(curr).username, 5) ) {
+						Shift temp = new Shift(currentStaff.get(curr), 5, 1);
+						sched.addShift(temp);
+						budgetHours -= 8;
+						day++;
+						count = 0;
+					}
+					else {
+						count++;
+					}
 				}else {
-					curr++;
+					if (currentStaff.get(curr).tuesdayAvailability == 2 && !sched.alreadyScheduled(currentStaff.get(curr).username, 5) ) {
+						Shift temp = new Shift(currentStaff.get(curr), 5, 2);
+						sched.addShift(temp);
+						budgetHours -= 8;
+						day++;
+						count = 0;
+					}
+					else {
+						count++;
+					}
 				}
-				if (curr >= currentStaff.size()) {
-					curr = partTimeIndex;
-				}
-				day++;
-				continue;
+				break;
 			default:
-				if (curr >= currentStaff.size()) {
-					curr = partTimeIndex;
-				}
-				day++;
+				break;
+			}
+			curr++;
+			if (curr >= currentStaff.size()) {
+				curr = partTimeIndex;
 			}
 		}
+		//System.out.println(budgetHours);
 		return sched;
 	}
+	
 	
 	
 	
